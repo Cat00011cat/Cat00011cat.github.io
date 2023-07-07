@@ -66,6 +66,15 @@
   </url>
   
   <url>
+    <loc>https://blog.thecat.top/archives/smp.html</loc>
+    
+    <lastmod>2023-07-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.thecat.top/archives/run.html</loc>
     
     <lastmod>2023-07-07</lastmod>
@@ -76,15 +85,6 @@
   
   <url>
     <loc>https://blog.thecat.top/archives/smpwifi.html</loc>
-    
-    <lastmod>2023-07-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thecat.top/archives/smp.html</loc>
     
     <lastmod>2023-07-07</lastmod>
     
