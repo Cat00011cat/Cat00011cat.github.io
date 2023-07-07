@@ -1,0 +1,9 @@
+User-agent: *
+
+Disallow: /js/
+Disallow: /img/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /fancybox/
+
+Sitemap: https://blog.xsot.cn/sitemap.xml

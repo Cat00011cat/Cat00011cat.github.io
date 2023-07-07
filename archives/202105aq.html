@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>2021年5月云南省网络空间安全比赛赛题 - 白菜日记</title>
+
+  
+    <meta name="description" content="2021年5月云南省网络空间安全赛项技能大赛比赛赛题复现。任务一、SSH弱口令渗透测试任务环境说明：ü 服务器场景：Linuxü 服务器场景操作系统：Linux（版本不详）  在本地PC渗透测试平台BT5中使用zenmap工具扫描服务器场景Linux所在网段(例如：172.16.101.0&#x2F;24)范围内存活的主机IP地址和指定开放的21、22、23端口。并将该操作使用的命令中必须要添加的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021年5月云南省网络空间安全比赛赛题">
+<meta property="og:url" content="https://blog.thecat.top/archives/202105aq.html">
+<meta property="og:site_name" content="白菜日记">
+<meta property="og:description" content="2021年5月云南省网络空间安全赛项技能大赛比赛赛题复现。任务一、SSH弱口令渗透测试任务环境说明：ü 服务器场景：Linuxü 服务器场景操作系统：Linux（版本不详）  在本地PC渗透测试平台BT5中使用zenmap工具扫描服务器场景Linux所在网段(例如：172.16.101.0&#x2F;24)范围内存活的主机IP地址和指定开放的21、22、23端口。并将该操作使用的命令中必须要添加的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-09T16:22:41.000Z">
+<meta property="article:modified_time" content="2023-07-07T07:30:34.698Z">
+<meta property="article:author" content="Cat00011cat">
+<meta property="article:tag" content="CTF">
+<meta property="article:tag" content="安全">
+<meta property="article:tag" content="比赛">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="白菜日记" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://q2.qlogo.cn/headimg_dl?dst_uin=990667303&spec=100">
+  
+
+  
+
+  
+
+
+  
+    
+      <script async data-domain="blog.thecat.top" src=""></script>
+    
+      <script defer src="https://static.iirose.cn/bsz/bsz.js"></script>
+    
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about"><div class="bg" style="opacity:0;background-image:url(https://static.iirose.cn/hexo/stellar/rainbow.webp);"></div><img no-lazy class="avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=990667303&spec=100" onerror="javascript:this.classList.add('error');this.src='https://static.iirose.cn/hexo/stellar/placeholder/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">白菜日记</div><div class="sub normal cap">热爱可抵岁月漫长</div><div class="sub hover cap" style="opacity:0"> 风起风止我都在</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/msg">留言</a><a class="nav-item" href="/link">友链</a><a class="nav-item" href="/about">关于</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" placeholder="站内搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">2021年5月云南省网络空间安全比赛赛题</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%80%E3%80%81SSH%E5%BC%B1%E5%8F%A3%E4%BB%A4%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95"><span class="toc-text">任务一、SSH弱口令渗透测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%BA%8C%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90ack%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-text">任务二：数据分析ack数据包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%89%EF%BC%9A%E7%BB%BC%E5%90%88%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95"><span class="toc-text">任务三：综合渗透测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E5%9B%9B%EF%BC%9AWeb%E6%B8%97%E9%80%8F"><span class="toc-text">任务四：Web渗透</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B7%E6%88%98%E9%98%B6%E6%AE%B5"><span class="toc-text">混战阶段</span></a></li></ol></div></div></widget>
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></div><div id="post-meta">发布于&nbsp;<time datetime="2021-10-09T16:22:41.000Z">2021-10-10</time><br />pv: <span id="busuanzi_page_pv">-</span> | uv: <span id="busuanzi_page_uv">-</span></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>2021年5月云南省网络空间安全比赛赛题</span></h1>
+<h1 id="2021年5月云南省网络空间安全赛项技能大赛比赛赛题复现。"><a href="#2021年5月云南省网络空间安全赛项技能大赛比赛赛题复现。" class="headerlink" title="2021年5月云南省网络空间安全赛项技能大赛比赛赛题复现。"></a>2021年5月云南省网络空间安全赛项技能大赛比赛赛题复现。</h1><h2 id="任务一、SSH弱口令渗透测试"><a href="#任务一、SSH弱口令渗透测试" class="headerlink" title="任务一、SSH弱口令渗透测试"></a>任务一、SSH弱口令渗透测试</h2><p>任务环境说明：<br>ü 服务器场景：Linux<br>ü 服务器场景操作系统：Linux（版本不详）</p>
+<ol>
+<li>在本地PC渗透测试平台BT5中使用zenmap工具扫描服务器场景Linux所在网段(例如：172.16.101.0&#x2F;24)范围内存活的主机IP地址和指定开放的21、22、23端口。并将该操作使用的命令中必须要添加的字符串作为FLAG提交（忽略ip地址）；</li>
+</ol>
+<p>直接用nmap扫描</p>
+<p>flag&#x3D;-p21,22,23</p>
+<p>2.通过本地PC中渗透测试平台BT5对服务器场景Linux进行系统服务及版本扫描渗透测试，并将该操作显示结果中SSH服务对应的服务端口信息作为FLAG提交；</p>
+<p>nmap -sV 192.168.19.75<br>flag&#x3D;22&#x2F;tcp</p>
+<p>3.在本地PC渗透测试平台BT5中使用MSF模块对其爆破，使用search命令，并将扫描弱口令模块的名称信息作为FLAG提交；</p>
+<p>flag&#x3D;search mssql_login</p>
+<ol start="4">
+<li>在上一题的基础上使用命令调用该模块，并查看需要配置的信息（使用show options命令），将回显中需要配置的目标地址,密码使用的猜解字典,线程,账户配置参数的字段作为FLAG提交（之间以英文逗号分隔，例hello,test，..,..）；</li>
+</ol>
+<p>flag&#x3D;rhosts,pass_file,threads,username</p>
+<p>5.在msf模块中配置目标靶机IP地址，将配置命令中的前两个单词作为FLAG提交；</p>
+<p>flag&#x3D;set rhosts</p>
+<ol start="6">
+<li>在msf模块中指定密码字典，字典路径为&#x2F;root&#x2F;2.txt，用户名为test爆破获取密码并将得到的密码作为FLAG提交；<br>直接用比赛现场的字典进行爆破爆破，使用set指定参数，直接run就行   。</li>
+</ol>
+<p>在上一题的基础上，使用第6题获取到的密码SSH到靶机，将test用户家目录中唯一一个后缀为.bmp图片的文件名的字符串作为FLAG提交。<br>迎刃而解</p>
+<h2 id="任务二：数据分析ack数据包"><a href="#任务二：数据分析ack数据包" class="headerlink" title="任务二：数据分析ack数据包"></a>任务二：数据分析ack数据包</h2><p>1.从靶机服务器的FTP上下载attack pcapng数据包文件,通过分析数据包attack pcapng,找出黑客的IP地址，并将黑客的IP地址作为FLAG (形式: [IP地址])提交; (1分)</p>
+<p>flag：[192.168.8.126]</p>
+<p>2继续查看数据包文件attack.pacapng,分析出黑客扫描得到的靶机开放的端口,将靶机开放的端口作为FLAG (形式: [端口名1,端口名2.端口名3… ,端口名n])从低到高提交; (1分)</p>
+<p>flag：[21]</p>
+<p>3.继续查看数据包文件attack pacapng,分析出黑客成功入侵后获得的操作系统的版本号，将操作系统的版本号作为FLAG (形式: [操作系统版本号])提交; (1分)</p>
+<p>flag:[ anonymous]</p>
+<p>4.继续查看数据包文件attack pacapng,分析出黑客成功入侵后执行的第一条命令 ,并将执行的第一条命令作为FLAG (形式: [第-条命令])提交; (1分)</p>
+<p>flag:[admin]</p>
+<p>5.继续查看数据包文件attack.pacapng,分析出黑客成功入侵后执行的第二条命令,并将执行的第二条命令作为FLAG (形式: [第二条命令])提交; (2分) </p>
+<p>flag:[put one.asp]</p>
+<p>6.继续查看数据包文件attack pacapng,分析出黑客成功入侵后执行的第二条命令的返回结果,并将执行的第二条命令返回结果作为FLAG (形式: [第二条命令返回结果])提交; (2分)</p>
+<p>flag:[Microsof-1IS&#x2F;7.5]</p>
+<p>7.继续查看数据包文件attack .pacapng,分析出黑客成功入侵后执行的第三条命令的返回结果,并将执行的第三条命令返回结果作为FLAG (形式: [第三条命令返回结果])提交。(2分)</p>
+<p>flag:[Tomorrow]</p>
+<h2 id="任务三：综合渗透测试"><a href="#任务三：综合渗透测试" class="headerlink" title="任务三：综合渗透测试"></a>任务三：综合渗透测试</h2><p>主要内容就是使用木马进行提权获取主机Shell</p>
+<p>大概思路：登陆后台，msf生成php马反弹拿系统权限</p>
+<h2 id="任务四：Web渗透"><a href="#任务四：Web渗透" class="headerlink" title="任务四：Web渗透"></a>任务四：Web渗透</h2><p>页面1，，，f12直接拿flag<br>页面2，，，看到登录框，，’号报错，，直接nmap脱裤，，拿到flag。<br>页面3，，XFF伪造IP本地访问。。。<br>页面4，，记不起来了，，，很简单</p>
+<p><em>前4小题，，都是基础，，很简单。</em></p>
+<p>页面五，，，，&#x2F;file&#x3D;text.txt，，，这题没有做出来</p>
+<h2 id="混战阶段"><a href="#混战阶段" class="headerlink" title="混战阶段"></a>混战阶段</h2><p>一台Linux</p>
+<p>开放21 22 23 80 3306端口。。。<br>扫出来，，，21 ——&gt;&gt; VSFTPD234  笑脸漏洞存在。。<br>2.txt万能字典（相对较多，，拿去爆破ssh和ftp应该都能爆破出来）<br>password.txt字典。。。</p>
+<p>二阶段总结：上场一定要记得更改虚拟机配置，不然你会卡到怀疑人生！！！</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本博客所有文章除特别声明外, 均采用 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议.<br />转载请注明本文链接: <a href="https://blog.thecat.top/archives/202105aq.html">https://blog.thecat.top/archives/202105aq.html</a></p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/archives/gbqlz.html">【项目】一款简洁的告白墙</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/archives/bsssn.html">关于比赛我的碎碎念</a></div></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md-text reveal' id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">Blog</span><a href="/">Posts</a><a href="/tags/">Tags</a><a href="/archives/">Archives</a><a href="/categories/">Categories</a></div><div class="sitemap-group"><span class="fs14">Projects</span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://thecat.top">null</a></div><div class="sitemap-group"><span class="fs14">Social</span><a href="/link">Links</a><a href="mailto:990667303@qq.com" rel="external nofollow noreferrer">Mail</a><a href="/msg">Message</a></div><div class="sitemap-group"><span class="fs14">More</span><a href="/feed">Feed</a><a href="/about">About</a><a href="/sitemap.xml">Sitemap</a></div></div><div class="text"><p>pv: <span id="busuanzi_site_pv">-</span> &amp; uv: <span id="busuanzi_site_uv">-</span><br><a target="_blank" rel="noopener" href="//beian.miit.gov.cn">滇ICP备19010286号-1</a></p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://static.iirose.cn/hexo/stellar/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"codeblock":false,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://static.iirose.cn/hexo/stellar/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://static.iirose.cn/hexo/stellar/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://static.iirose.cn/hexo/stellar/swiper/swiper-bundle.min.css","js":"https://static.iirose.cn/hexo/stellar/swiper/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://static.iirose.cn/hexo/stellar/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":false,"service":"flying_pages","instant_page":"https://static.iirose.cn/hexo/stellar/preload/instant_page.js","flying_pages":"https://static.iirose.cn/hexo/stellar/preload/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://static.iirose.cn/hexo/stellar/fancybox/fancybox.umd.js","css":"https://static.iirose.cn/hexo/stellar/fancybox/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function load_comment(){
+    if(!document.getElementById("waline_container"))return;
+    stellar.loadCSS('https://static.iirose.cn/hexo/waline/waline.css');
+    stellar.loadScript('https://static.iirose.cn/hexo/waline/waline.js', {defer:true}).then(function () {
+      const el = document.getElementById("waline_container");
+      var path = el.getAttribute('comment_id');
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+      Waline.init(Object.assign({"js":"https://static.iirose.cn/hexo/waline/waline.js","css":"https://static.iirose.cn/hexo/waline/waline.css","serverURL":"https://waline.9420.ltd/","commentCount":true,"pageview":false,"copyright":false,"wordLimit":500,"imageUploader":false,"emoji":false,"requiredMeta":["nick","mail"],"pageSize":10,"locale":{"placeholder":"说些什么吧\r\nTips: 评论将在审核通过后展示"}}, {
+        el: '#waline_container',
+        path: path,
+      }));
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    // console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+<!-- inject -->
+
+  
+    <link href="https://font.onmicrosoft.cn/lxgw-wenkai-screen-webfont@1.6.0/style.css" rel="stylesheet">
+  
+    <link href="https://static.iirose.cn/font/JetBrainMono/JetbrainMono.css" rel="stylesheet">
+  
+
+
+  </div>
+</body>
+</html>

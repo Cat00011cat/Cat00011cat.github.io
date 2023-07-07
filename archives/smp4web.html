@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>树莓派4部署LNMP服务 - 白菜日记</title>
+
+  
+    <meta name="description" content="树莓派展示    [collapse status&#x3D;”false” title&#x3D;”SCREEN”] VPS侦探在刚接触Linux时最怕的就是SSH远程登录Linux VPS编译安装程序时（比如安装lnmp）网络突然断开，或者其他情况导致不得不与远程SSH服务器链接断开，远程执行的命令也被迫停止，只能重新连接，重新运行。相信现在有些VPSer也遇到过这个问题，今天就给VPSer们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派4部署LNMP服务">
+<meta property="og:url" content="https://blog.thecat.top/archives/smp4web.html">
+<meta property="og:site_name" content="白菜日记">
+<meta property="og:description" content="树莓派展示    [collapse status&#x3D;”false” title&#x3D;”SCREEN”] VPS侦探在刚接触Linux时最怕的就是SSH远程登录Linux VPS编译安装程序时（比如安装lnmp）网络突然断开，或者其他情况导致不得不与远程SSH服务器链接断开，远程执行的命令也被迫停止，只能重新连接，重新运行。相信现在有些VPSer也遇到过这个问题，今天就给VPSer们">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200817211447.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200817211446.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194701.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194703.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194701.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194702.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194705.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194704.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194658.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194659.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200808205804.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200808210523.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200808210524.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200808210923.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200808210922.png">
+<meta property="article:published_time" content="2020-08-07T04:52:00.000Z">
+<meta property="article:modified_time" content="2023-07-07T08:05:48.862Z">
+<meta property="article:author" content="Cat00011cat">
+<meta property="article:tag" content="白菜日记, Cat00011cat">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200817211447.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="白菜日记" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://q2.qlogo.cn/headimg_dl?dst_uin=990667303&spec=100">
+  
+
+  
+
+  
+
+
+  
+    
+      <script async data-domain="blog.thecat.top" src=""></script>
+    
+      <script defer src="https://static.iirose.cn/bsz/bsz.js"></script>
+    
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about"><div class="bg" style="opacity:0;background-image:url(https://static.iirose.cn/hexo/stellar/rainbow.webp);"></div><img no-lazy class="avatar" src="https://q2.qlogo.cn/headimg_dl?dst_uin=990667303&spec=100" onerror="javascript:this.classList.add('error');this.src='https://static.iirose.cn/hexo/stellar/placeholder/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">白菜日记</div><div class="sub normal cap">热爱可抵岁月漫长</div><div class="sub hover cap" style="opacity:0"> 风起风止我都在</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/msg">留言</a><a class="nav-item" href="/link">友链</a><a class="nav-item" href="/about">关于</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" placeholder="站内搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">树莓派4部署LNMP服务</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85screen%E5%91%BD%E4%BB%A4%EF%BC%9F"><span class="toc-text">二、如何安装screen命令？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81screen%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-text">三、screen命令使用方法？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E5%B8%B8%E7%94%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">1、常用的使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E5%88%9B%E5%BB%BAscreen%E4%BC%9A%E8%AF%9D"><span class="toc-text">1.1 创建screen会话</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E6%9A%82%E6%97%B6%E7%A6%BB%E5%BC%80%EF%BC%8C%E4%BF%9D%E7%95%99screen%E4%BC%9A%E8%AF%9D%E4%B8%AD%E7%9A%84%E4%BB%BB%E5%8A%A1%E6%88%96%E7%A8%8B%E5%BA%8F"><span class="toc-text">1.2 暂时离开，保留screen会话中的任务或程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E6%81%A2%E5%A4%8Dscreen%E4%BC%9A%E8%AF%9D"><span class="toc-text">1.3 恢复screen会话</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E5%85%B3%E9%97%ADscreen%E7%9A%84%E4%BC%9A%E8%AF%9D"><span class="toc-text">1.4 关闭screen的会话</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E8%BF%9C%E7%A8%8B%E6%BC%94%E7%A4%BA"><span class="toc-text">2、远程演示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">3、常用快捷键</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E8%BD%AF%E4%BB%B6%E6%BA%90%E9%85%8D%E7%BD%AE"><span class="toc-text">编辑软件源配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E7%B3%BB%E7%BB%9F%E6%BA%90%E9%85%8D%E7%BD%AE"><span class="toc-text">编辑系统源配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0"><span class="toc-text">更新</span></a></li></ol></li></ol></li></ol></div></div></widget>
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%BD%91%E7%BB%9C%E8%BF%90%E7%BB%B4/">网络运维</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-08-07T04:52:00.000Z">2020-08-07</time><br />pv: <span id="busuanzi_page_pv">-</span> | uv: <span id="busuanzi_page_uv">-</span></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>树莓派4部署LNMP服务</span></h1>
+<h1 id="树莓派展示"><a href="#树莓派展示" class="headerlink" title="树莓派展示"></a>树莓派展示</h1><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200817211447.png"/>
+
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200817211446.png"/>
+
+<p>[collapse status&#x3D;”false” title&#x3D;”SCREEN”]</p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.vpser.net/">VPS侦探</a>在刚接触Linux时最怕的就是SSH远程登录Linux VPS编译安装程序时（比如安装<a target="_blank" rel="noopener external nofollow noreferrer" href="https://lnmp.org/">lnmp</a>）网络突然断开，或者其他情况导致不得不与远程SSH服务器链接断开，远程执行的命令也被迫停止，只能重新连接，重新运行。相信现在有些VPSer也遇到过这个问题，今天就给VPSer们介绍一款<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.vpser.net/manage/screen.html">远程会话管理工具</a> - <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.vpser.net/manage/screen.html">screen命令</a>。</p>
+<h1 id="一、screen命令是什么？"><a href="#一、screen命令是什么？" class="headerlink" title="一、screen命令是什么？"></a>一、screen命令是什么？</h1><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.vpser.net/manage/screen.html">Screen</a>是一个可以在多个进程之间多路复用一个物理终端的全屏窗口管理器。Screen中有会话的概念，用户可以在一个screen会话中创建多个screen窗口，在每一个screen窗口中就像操作一个真实的telnet&#x2F;SSH连接窗口那样。</p>
+<h2 id="二、如何安装screen命令？"><a href="#二、如何安装screen命令？" class="headerlink" title="二、如何安装screen命令？"></a>二、如何安装screen命令？</h2><p>除部分精简的系统或者定制的系统大部分都安装了screen命令，如果没有安装，CentOS系统可以执行：<strong>yum install screen</strong> ；</p>
+<p>CentOS 8上移除了screen，需要<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.vpser.net/manage/centos-rhel-linux-third-party-source-epel.html">安装epel</a>后安装screen执行：<strong>yum install screen</strong> ；</p>
+<p>Debian&#x2F;Ubuntu系统执行：<strong>apt-get install screen</strong> 。</p>
+<h2 id="三、screen命令使用方法？"><a href="#三、screen命令使用方法？" class="headerlink" title="三、screen命令使用方法？"></a>三、screen命令使用方法？</h2><h3 id="1、常用的使用方法"><a href="#1、常用的使用方法" class="headerlink" title="1、常用的使用方法"></a><strong>1、常用的使用方法</strong></h3><p>用来解决<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.vpser.net/manage/screen.html">文章</a>开始我们遇到的问题，比如在<a target="_blank" rel="noopener external nofollow noreferrer" href="https://lnmp.org/install.html">安装lnmp</a>时。</p>
+<h4 id="1-1-创建screen会话"><a href="#1-1-创建screen会话" class="headerlink" title="1.1 创建screen会话"></a>1.1 创建screen会话</h4><p>可以先执行：<strong>screen -S lnmp</strong> ，screen就会创建一个名字为lnmp的会话。 VPS侦探 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.vpser.net/">https://www.vpser.net/</a></p>
+<h4 id="1-2-暂时离开，保留screen会话中的任务或程序"><a href="#1-2-暂时离开，保留screen会话中的任务或程序" class="headerlink" title="1.2 暂时离开，保留screen会话中的任务或程序"></a>1.2 暂时离开，保留screen会话中的任务或程序</h4><p>当需要临时离开时（会话中的程序不会关闭，仍在运行）可以用快捷键Ctrl+a d(即按住Ctrl，依次再按a,d)</p>
+<h4 id="1-3-恢复screen会话"><a href="#1-3-恢复screen会话" class="headerlink" title="1.3 恢复screen会话"></a>1.3 恢复screen会话</h4><p>当回来时可以再执行执行：<strong>screen -r lnmp</strong> 即可恢复到离开前创建的lnmp会话的工作界面。</p>
+<p>如果忘记了，或者当时没有指定会话名，可以执行：<strong>screen -ls</strong> screen会列出当前存在的会话列表。</p>
+<h4 id="1-4-关闭screen的会话"><a href="#1-4-关闭screen的会话" class="headerlink" title="1.4 关闭screen的会话"></a>1.4 关闭screen的会话</h4><p>执行：<strong>exit</strong> ，会提示：[screen is terminating]，表示已经成功退出screen会话。VPS侦探 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.vpser.net/">https://www.vpser.net/</a></p>
+<h3 id="2、远程演示"><a href="#2、远程演示" class="headerlink" title="2、远程演示"></a>2、远程演示</h3><p>首先演示者先在服务器上执行 <strong>screen -S test</strong> 创建一个screen会话，观众可以链接到远程服务器上执行**screen -x test **观众屏幕上就会出现和演示者同步。</p>
+<h3 id="3、常用快捷键"><a href="#3、常用快捷键" class="headerlink" title="3、常用快捷键"></a>3、常用快捷键</h3><p>Ctrl+a c ：在当前screen会话中创建窗口<br>Ctrl+a w ：窗口列表<br>Ctrl+a n ：下一个窗口<br>Ctrl+a p ：上一个窗口<br>Ctrl+a 0-9 ：在第0个窗口和第9个窗口之间切换</p>
+<p>[&#x2F;collapse]</p>
+<h1 id="切换国内源（清华大学的源）"><a href="#切换国内源（清华大学的源）" class="headerlink" title="切换国内源（清华大学的源）"></a>切换国内源（清华大学的源）</h1><h4 id="编辑软件源配置"><a href="#编辑软件源配置" class="headerlink" title="编辑软件源配置"></a>编辑软件源配置</h4><p>编辑 &#x2F;etc&#x2F;apt&#x2F;sources.list 文件（软件源），参考如下命令：</p>
+<p><code>sudo nano /etc/apt/sources.list</code></p>
+<p>注释原来的源，添加清华的源：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi</span><br></pre></td></tr></table></figure>
+
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194701.png"/>
+
+<h4 id="编辑系统源配置"><a href="#编辑系统源配置" class="headerlink" title="编辑系统源配置"></a>编辑系统源配置</h4><p>编辑 &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;raspi.list 文件（系统更新源），参考如下命令：</p>
+<p><code>sudo nano /etc/apt/sources.list.d/raspi.list</code></p>
+<p>注释&#x2F;去掉自带的源，添加如下源：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main ui</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main ui</span><br></pre></td></tr></table></figure>
+
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194703.png"/>
+
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194701.png"/>
+
+<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><p>配置好了可以尝试更新，用下面的命令分别更新软件源列表、软件版本和系统内核版本，完整的更新过程需要等挺久的。一般只用更新软件源列表即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#更新软件源列表</span><br><span class="line">sudo apt-get update</span><br><span class="line">#更新软件版本</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line">sudo apt-get dist-upgrade</span><br><span class="line">#更新系统内核</span><br><span class="line">sudo rpi-update</span><br></pre></td></tr></table></figure>
+
+<h1 id="切换ROOT账户"><a href="#切换ROOT账户" class="headerlink" title="切换ROOT账户"></a>切换ROOT账户</h1><p>初次使用树莓派系统时，默认用户是pi ，密码为raspberry。</p>
+<ol>
+<li>要想使用root帐号，或者说开启root用户，可使用pi用户登录，执行下面命令（此命令是给root账户设置密码的，当切换到root管理员后，此命令无效）</li>
+</ol>
+<p><code>sudo passwd root</code></p>
+<p><em>说明：sudo是linux系统管理指令，是允许系统管理员让普通用户执行一些或者全部的root命令的一个工具，如halt，reboot，su等等</em></p>
+<ol start="2">
+<li>执行此命令后系统会提示输入两遍的root密码（用来确保你记住了密码）。</li>
+</ol>
+<p>接着输入下面命令，用来解锁root账户</p>
+<p><code>sudo passwd --unlock root</code></p>
+<ol start="3">
+<li>用下面命令切换到root管理员</li>
+</ol>
+<p><code>su root</code></p>
+<p>会提示输入密码</p>
+<h1 id="扩展分区"><a href="#扩展分区" class="headerlink" title="扩展分区"></a>扩展分区</h1><p>问题1：为什么我的SD卡插在电脑上只显示40Mb?<br>问题2：我买的64G、32G、16G。为什么查看只有8g？</p>
+<p>1.在命令行输入：sudo raspi-config，然后回车</p>
+<p>2.选择第七项：“7 Advanced Options”，回车，</p>
+<p>3.（选择第一项：“A1 Expand Filesystem”，看名字大家就明白了）</p>
+<p>4.继续回车，表示确定.</p>
+<p>5.点选“Finish”完成，等待重启即可，</p>
+<p>6.6.查看确认df -h</p>
+<h1 id="安装LNMP"><a href="#安装LNMP" class="headerlink" title="安装LNMP"></a>安装LNMP</h1><ol>
+<li>SSH连接树莓派终端在部署LNMP之前，先安装screen侦探 树莓派内核是Debian系统。</li>
+</ol>
+<p>安装命令：<code>apt-get install screen</code></p>
+<p>安装完执行命令：<code>screen -S lnmp</code></p>
+<ol start="2">
+<li>，一条一条执行命令太猥琐，我们用LNMP一键安装包进行LNMP服务安装：</li>
+</ol>
+<p>root权限执行无人值守安装命令：<code>wget http://soft.vpser.net/lnmp/lnmp1.7.tar.gz -cO lnmp1.7.tar.gz &amp;&amp; tar zxf lnmp1.7.tar.gz &amp;&amp; cd lnmp1.7 &amp;&amp; ./install.sh lnmp  </code></p>
+<p><strong>不是root权限会提示权限不足</strong></p>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194702.png"/>
+
+<p>选择数据库版本</p>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194705.png"/>
+
+<p>选择php~~</p>
+<p>接着——&gt;&gt;是否安装内存分配器</p>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194704.png"/>
+
+<p>按任意键进行安装…或按Ctrl + c取消</p>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194658.png"/>
+
+<p>发现报错，，查看报错信息提示：</p>
+<p>在非常新的Linux版本（例如Ubuntu 19 +，Debian 10，Deepin 20 +，Fedora 29+等）上，不支持低于PHP 7.1的安装。</p>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200807194659.png"/>
+
+<p>重新执行安装命令，php版本选择&lt;&#x3D;7.1+ 即可解决。</p>
+<p>进入漫长的跑码~~~</p>
+<p>出现如图安装成功</p>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200808205804.png"/>
+
+<p>部署完博客发现后台404，这个是nginx伪静态没有开启的原因。</p>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200808210523.png"/>
+
+<p>nginx.conf配置文件 添加核心代码即可开启伪静态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include enable-php-pathinfo.conf;</span><br></pre></td></tr></table></figure>
+
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200808210524.png"/>
+
+<p>保存重启nginx即可。nginx restart</p>
+<p>卸载lnmp一键装命令</p>
+<p>在lnmp.XXX版本目录下执行 .&#x2F;uninstall.sh</p>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200808210923.png"/>
+
+<ol start="4">
+<li>完毕（卸载掉root下的其他文件）</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -rf lnmp1.4/</span><br><span class="line">rm -rf lnmp1.4.tar.gz </span><br></pre></td></tr></table></figure>
+
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/lateral404/image/image/20200808210922.png"/>
+
+<p><strong><del>待解决问题，备份的数据库下载提示权限不足。博客后台也无法备份，同样提示权限不足。</del></strong></p>
+<p>已解决，重启mysql和nginx即可。</p>
+<p>最后成功迁移博客网站至树莓派。</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本博客所有文章除特别声明外, 均采用 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议.<br />转载请注明本文链接: <a href="https://blog.thecat.top/archives/smp4web.html">https://blog.thecat.top/archives/smp4web.html</a></p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/archives/baji.html">中职网络空间安全靶机搭建</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/archives/smpwifi.html">树莓派无屏幕无线远程</a></div></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md-text reveal' id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">Blog</span><a href="/">Posts</a><a href="/tags/">Tags</a><a href="/archives/">Archives</a><a href="/categories/">Categories</a></div><div class="sitemap-group"><span class="fs14">Projects</span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://thecat.top">null</a></div><div class="sitemap-group"><span class="fs14">Social</span><a href="/link">Links</a><a href="mailto:990667303@qq.com" rel="external nofollow noreferrer">Mail</a><a href="/msg">Message</a></div><div class="sitemap-group"><span class="fs14">More</span><a href="/feed">Feed</a><a href="/about">About</a><a href="/sitemap.xml">Sitemap</a></div></div><div class="text"><p>pv: <span id="busuanzi_site_pv">-</span> &amp; uv: <span id="busuanzi_site_uv">-</span><br><a target="_blank" rel="noopener" href="//beian.miit.gov.cn">滇ICP备19010286号-1</a></p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.18.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://static.iirose.cn/hexo/stellar/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"codeblock":false,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://static.iirose.cn/hexo/stellar/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://static.iirose.cn/hexo/stellar/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://static.iirose.cn/hexo/stellar/swiper/swiper-bundle.min.css","js":"https://static.iirose.cn/hexo/stellar/swiper/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://static.iirose.cn/hexo/stellar/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":false,"service":"flying_pages","instant_page":"https://static.iirose.cn/hexo/stellar/preload/instant_page.js","flying_pages":"https://static.iirose.cn/hexo/stellar/preload/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://static.iirose.cn/hexo/stellar/fancybox/fancybox.umd.js","css":"https://static.iirose.cn/hexo/stellar/fancybox/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function load_comment(){
+    if(!document.getElementById("waline_container"))return;
+    stellar.loadCSS('https://static.iirose.cn/hexo/waline/waline.css');
+    stellar.loadScript('https://static.iirose.cn/hexo/waline/waline.js', {defer:true}).then(function () {
+      const el = document.getElementById("waline_container");
+      var path = el.getAttribute('comment_id');
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+      Waline.init(Object.assign({"js":"https://static.iirose.cn/hexo/waline/waline.js","css":"https://static.iirose.cn/hexo/waline/waline.css","serverURL":"https://waline.9420.ltd/","commentCount":true,"pageview":false,"copyright":false,"wordLimit":500,"imageUploader":false,"emoji":false,"requiredMeta":["nick","mail"],"pageSize":10,"locale":{"placeholder":"说些什么吧\r\nTips: 评论将在审核通过后展示"}}, {
+        el: '#waline_container',
+        path: path,
+      }));
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    // console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+<!-- inject -->
+
+  
+    <link href="https://font.onmicrosoft.cn/lxgw-wenkai-screen-webfont@1.6.0/style.css" rel="stylesheet">
+  
+    <link href="https://static.iirose.cn/font/JetBrainMono/JetbrainMono.css" rel="stylesheet">
+  
+
+
+  </div>
+</body>
+</html>
